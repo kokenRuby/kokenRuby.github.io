@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Koken Ruby on Rails</title>
+    <script src="../js/jquery-3.1.1.min.js"></script>
+
+    <script type="text/javascript" src="../syntaxHighlighter/scripts/shCore.js"></script>
+    <script type="text/javascript" src="../syntaxHighlighter/scripts/shBrushJScript.js"></script>
+    <script type="text/javascript" src="../syntaxHighlighter/scripts/shBrushCss.js"></script>
+    <script type="text/javascript" src="../syntaxHighlighter/scripts/shBrushBash.js"></script>
+    <script type="text/javascript" src="../syntaxHighlighter/scripts/shBrush.js"></script>
+    <link type="text/css" rel="stylesheet" href="../syntaxHighlighter/styles/shCoreDefault.css"/>
+    <link type="text/css" rel="stylesheet" href="../syntaxHighlighter/styles/shThemeFadeToGrey.css"/>
+    <script type="text/javascript">
+      SyntaxHighlighter.all();
+    </script>
+
+    <script src="../js/application.js"></script>
+  </head>
+  <body>
+
+    <div class="navbar"></div>
+    <header></header>
+
+    <div class="contents clearfix">
+
+      <article class="left-content">
+
+<h1>第0回 Ruby on Rails講習</h1>
+
+<p>この回ではRuby on Railsで開発していくうえで必要な環境構築をしていきます。<br>本講習ではSublime Text 3 というエディタを使います。
+<br>以下のリンクに飛んでください。
+</p>
+<h3><a href="http://www.sublimetext.com/3">Sublime Text 3</a></h3>
+
+<p>この中から対応する環境のものをportable versionではない普通のリンクからダウンロードしてください。またインストールの設定はすべてデフォルトで大丈夫です。</p>
+
+<p>インストールしたらSublime Textを起動してください。</p>
+<p>それではこれからHtml, css, javascript, rubyの文書をきれいに整形するための基本設定をしていきます。</p>
+
+<p>(1) Sublime textのメニューバーから「Preferences」->「Settings - User」の順に選択</p>
+
+<p>(2)開いたファイルに以下のコードを張り付けして保存(保存はCtrl-Sでできます。)</p>
+
+<pre class="brush: js;">
+  {
+    "draw_white_space":"all",
+    "font_size":8.0,
+    "highlight_line":true,
+    "ignored_packages":["Vintage"],
+    "rulers":[80, 120],
+    "tab_size":2,
+    "translate_tabs_to_spaces":true,
+    "trim_trailing_white_space_on_save":false,
+    "word_wrap":true,
+    "color_scheme":"Packages/User/SublimeLinter/Monokai (SL).tmTheme",
+    "highlight_modified_tabs":true,
+    "scroll_past_end":true
+  }
+</pre>
+
+<p>(3)次にパッケージをダウンロードします。「View」->「Show console」の順に選択後、下に入力バーが表示されるのでそこにリンク先のコードをコピペしてEnter.</p>
+<h3><a href="https://packagecontrol.io/installation">コードのリンク先</a></h3>
+
+<img src="">
+
+
+<p>(4)いったんSublime Textを終了し再び起動。 そのあと画面で「Ctrl + Shift + p」を押す。上から入力バーが出てくるのでそこに「install package」と入力。</p>
+
+<p>(5)
+パッケージ一覧が出てくるので以下のパッケージをインストール(最初はこれくらいでいいと思います。 もし調べてみて他に入れたいパッケージが出てきたら自分で入れてみてください。)</p>
+<ul>
+<li>HTML5 ・・・HTML5の文書をきれいにしてくれる</li>
+<li>CSS Snippets ・・・ CSSの予測変換機能</li>
+<li>Ruby Debugger ・・・ Ruby のDebugの補助ツール</li>
+<li>TrailingSpaces ・・・ いらない空白文字を赤色で教えてくれる</li>
+</ul>
+
+<p>(6)次にパッケージを適用させます。「Preference」->「Package Settings」->「Package Control」->「Settings-user」を選択</p>
+
+<p>(7)展開されたファイルの中に以下の内容を入力</p>
+
+<pre class="brush: js;">
+{
+  "in_process_packages":[],
+  "installed_packages":
+  [
+    "CSS Snippets",
+    "HTML5",
+    "Ruby Debugger",
+    "TrailingSpaces"
+  ]
+}
+</pre>
+
+<h5>TrailingSpacesはこのままだと全角スペースは判定してくれないのでそれを設定しましょう。</h5>
+
+<p>(8)「Preferences」->「Package Settings」->「Trailing Spaces」->「Settings-user」を選択、その後以下のコードを打ち込む。</p>
+<pre class="brush: js;">
+{
+"trailing_spaces_regexp":"| [\t]+"
+}
+</pre>
+
+<h5>これでSublime Textの基本設定は終了です。</h5>
+
+<p>次にほかの様々なソフトウェアをインストールしていきましょう。 基本的には上から順にインストールしていってください。</p>
+
+<h3>・Virtual Box</h3>
+PC上に仮想環境を構築するためのソフトウェアです。ダウンロード、インストールにそれなりの時間がかかるので前日の夜ではなく早めにやっておきましょう。
+<h4><a href="https://www.virtualbox.org/wiki/Downloads">Virtual Box</a></h4>
+<p>インストールの設定はすべてデフォルトで問題ありません。</p>
+
+<h3>・vagrant </h3>
+<p>そもそもVirtual Boxで作られた仮想環境とPC内のシステムは互いに独立しているのでVirtual Boxだけだと仮想環境とPCでのファイルの行き来ができません。</p>
+<p>そのやりとりをssh通信でやるのですがその設定をするのが大変なのでvagrantというソフト(Rubyで作られています。)を使います。 Virtual Boxをインストールしてからこちらをインストールするようにしてください。</p>
+<h4><a href="https://www.vagrantup.com/downloads.html">vagrant</a></h4>
+<p>インストールの設定はすべてデフォルトで問題ありません。</p>
+
+<h3>・Git for Windows</h3>
+<p>こちらはWindowsOSの方のみインストールしてください。 コマンドプロンプトだとssh, gitが使えずかなり心もとないのでインストールします。</p>
+<h4><a href="https://git-for-windows.github.io/">Git bash</a></h4>
+
+<img src="">
+<p>ここでNextを押します。</p>
+
+<img src="">
+<p>上の画像と同じようにチェックを入れ(この設定がおすすめなのですが変えたい場合は各自変えてもかまいません。)</p>
+
+<img src="">
+<p>これは真ん中にチェックを入れましょう。</p>
+
+<img src="">
+<p>これも一番上にチェックを入れましょう。</p>
+
+<img src="">
+<p>ここでも一番上にチェック</p>
+
+<img src="">
+<p>ここでは両方にチェック</p>
+
+<h6>最後はチェックを入れるとGit Bashが立ち上がります。 入れなくても自分で起動すればいい話なのでこれに関してはどちらでも構いません。</h6>
+
+<h6>※MacPCの方はここから読んでください</h6>
+
+<p>それではインストールしたGit Bash(Macの方はTerminal)を使ってvagrant, VirtualBoxによる仮想環境を立ち上げていきましょう。</p>
+
+<p>VagrantはコンソールからOSのイメージをダウンロードすることもできるのですが
+そのOSにRuby, rails, MySQL等々入れなければいけないので私があらかじめ入れておいてpackage化したものを皆さんに使ってもらいます。</p>
+
+<p>今回はCentOS6.5を使うのですがこれにした理由としてはまずCentOS7.xから大きく仕様が変わったこと、CentOS6.xの方がまだまだ資料が多いことから選びました。 気に入らない人は自分でCentOS7.x, Ubuntuなどをダウンロードして初めから設定してもらってもかまいません。</p>
+
+<p>まず以下のリンクからpackage.boxとVagrantfileをダウンロードしてください。</p>
+
+<h4><a href="https://www.dropbox.com/s/xfbng4zzeosai57/package.box?dl=0">package.box</a></h4>
+<h4><a href="https://www.dropbox.com/s/jkrlzhb6kaigevj/Vagrantfile?dl=0">Vagrantfile</a></h4>
+
+<p>続いてGitBashを立ち上げましょう。</p>
+立ち上げたらホームディレクトリに「vagrant」というディレクトリを、そしてその中に進んでからさらに「centos6_5」というディレクトリを作りましょう。(ディレクトリ名はなんでもいいですがわかりやすい名前にした方がいいです)
+
+<pre class="brush: bash">
+mkdir vagrant
+cd vagrant
+mkdir centos6_5
+</pre>
+
+そして「centos6_5」の中に先ほどダウンロードした二つのファイルをドラッグアンドドロップで入れてください。
+
+それが終わったら「centos6_5」の中で以下のコマンドを打ち込みましょう。
+・vagrant box add CentOS6.5 ./package.box
+このコマンドの「CentOS6.5」という部分はbox名というものなのですがこれは変えないでください。 実はVagrantfile内部で「CentOS6.5」という名前で設定しているので変えると起動しなくなります。(まあVagrantfileの内容を変えれば済む話ですが)
+
+次に仮想環境を立ち上げましょう。以下のコマンドを打ち込んでください。
+<pre class="brush: bash">vagrant up</pre>
+
+立ち上がりが終わった後仮想環境内にsshで入ります。
+<pre class="brush: bash">vagrant ssh</pre>
+
+入ったら
+<pre class="brush: bash">cd /vagrant</pre>
+と打ってください。このファイルがみなさんのOSの~/vagrant/centos6_5との共有ディレクトリになっています。
+
+/vagrant内部でlsを打つとおそらく「package.box」「Vagrantfile」の二つがあると思います。 ここまで何もなく来れたら成功です。
+
+そして仮想環境から抜けたいときはコンソールに
+<pre class="brush: bash">exit</pre>
+と打ち込みましょう。GitBashを起動したときに戻っているはずです。
+
+<p>また、以下のコマンドは覚えておきましょう。</p>
+仮想環境を一時停止したい場合は(作業を一時中断したい時などに有効)
+<pre class="brush: bash">vagrant suspend</pre>
+シャットダウンは
+<pre class="brush: bash">vagrant halt</pre>
+再起動は
+<pre class="brush: bash">vagrant reload</pre>
+となります。 立ち上げる時は「vagrant up」です。これらのコマンドは覚えておきましょう。
+
+<h2>Heidi SQL</h2>
+
+<p>私たちはこれからRelational DataBase Management System, 略してRDBMSの一つであるMySQL(*1)というものを扱っていくのですがRDBMSだけだとデータの一覧を見たりデータを挿入するのにコマンドを打たなければなりません。そこでデータベースの閲覧等がGUIでできるHeidiSQLを使います。(ただしCUIのコマンドも少しは紹介します。 いずれはCUIでもできるようにしましょう。)</p>
+<a href="http://www.heidisql.com/installers/HeidiSQL_9.3.0.4984_Setup.exe">HeidiSQL</a>
+<h6>※インストールの設定はすべてデフォルトで問題ありません。</h6>
+
+<p>それではHeidiSQLの設定をしていきましょう、まず「vagrant up」で立ち上げてください。</p>
+<p>そしてHeidiSQLを起動、その後左下にある新規というボタンをクリック。</p>
+
+<img src="">
+ 
+<p>上と同じように設定してください。 </p>
+ 
+<p>また「SSHトンネル」のタブで上と同じように設定しましょう。また「plink.exe」はその下にあるリンク先より探してダウンロードしてください。</p>
+<p>ここまで設定出来たら右下の「開く」ボタンを押してみてください。</p>
+
+<img src="">
+ 
+<p>上の画像のような画面が出てきたら成功です。</p>
+
+<p>以上で環境構築は終了です。 なにかわからないこと等あれば大岡や2年生、web系言語に詳しい1年生に聞いてみてください。</p>
+
+
+<h6>*1 WEBサービスにおけるユーザーデータや掲示板の投稿のテキストデータなど、いわゆる様々なデータを扱う際に例えばあるディレクトリにそういった画像データやテキストデータを全て放り込んで管理するのは非常に大変です。 そこでそういったことを無くすためにRDBMSというWEBサービスのデータを管理するシステムが開発され、現在はこれを使ってデータの管理をするのが主流になっています。DBMSには他にもODBMS(Object oriented DabaBase Management System)などがあり、またDBMSとは考え方が根本的に違う画像ファイルや音声ファイルなど大きいデータを入れるときに使うドキュメント指向データベース(ex: MongoDB)があります。今回はRDBMSであるMySQLを使いますがいずれはMongoDBなども使えるようになりたいですね、というより私もなりたいです。</h6>
+
+        
+      </article>
+
+      <div class="right-content">
+        <div class="btn" data-url="../Lesson0/index.html">0回目(環境構築)</div>
+        <div class="btn" data-url="../Lesson1/index.html">1回目(HTML&CSS, javascriptの基本)</div>
+        <div class="btn" data-url="../Lesson2/index.html">2回目(Rubyの基本文法, Railsの基本)</div>
+        <div class="btn" data-url="../Lesson3/index.html">3回目(WEBサービス作成 その1)</div>
+        <div class="btn" data-url="../Lesson4/index.html">4回目(WEBサービス作成 その2)</div>
+        <div class="btn" data-url="../Lesson5/index.html">5回目</div>
+      </div>
+    </div>
+
+    <footer>
+    </footer>
+  </body>
+
+</html>

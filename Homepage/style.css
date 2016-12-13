@@ -1,0 +1,93 @@
+body {
+	background-color: #f0f0f0; /* RGB code で表せる */
+	font-size: 14px;
+	color: #333; /* RGB code */
+	margin: 0 auto;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+	padding: 10px 0;
+	margin: 0;
+}
+
+header {
+	background-color: #a0a0a0;
+}
+
+.heading {
+	height: 100px;
+	width: 960px;
+	background-color: #cccccc;
+	margin: 0 auto;
+}
+
+.title {
+	font-family: fantasy; /* フォントの種類を設定するプロパティ */
+}
+
+.heading-sentence {
+	font-size: 18px;
+}
+
+.navbar {
+	height: 50px;
+	width: 960px;
+	background-color: #a9a9a9;
+	margin: 0 auto;
+}
+
+.contents {
+	width: 960px;
+	background-color: #c0c0c0;
+	margin: 10px auto;
+}
+
+.left-content {
+	height: 400px;
+	width: 640px;
+	background-color: white;
+	float: left;
+}
+
+.right-content {
+	height: 370px;
+	width: 320px;
+	background-color: #f9f9f9;
+	float: left;
+}
+
+footer {
+	height: 50px;
+	/*background-color: #a0a0a0;*/
+	text-align: center;
+	
+}
+
+.clearfix:after {
+	content: "";
+	clear: both;
+	display: block;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none; /* li要素の先頭のマークを変えることができるプロパティ*/
+}
+
+ul li {
+  margin: 0;
+  float: left;
+  padding-right: 10px;
+}
+
+td {
+	margin: 0;
+	padding-left: 10px;
+	line-height: 30px;
+}
+
+.friends-img {
+	width: 100px;
+	height: 100px;
+}
