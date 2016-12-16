@@ -28,11 +28,11 @@
 
       <article class="left-content">
 
-<h3>すいません。 今回ちょっとjavascriptが終わりませんでした。 来週までにjavascript書き終える予定なのでそれまでお待ちいただけると・・・助かります・・・</h3>
+<h3>すいません。 今回javascriptの内容はあまり濃くないです・・・ </h3>
 
 <h1>第一回Ruby on Rails講習</h1>
 
-今回はHTML&CSS, javascriptの基本をやるのでvagrant, VirtualBoxは使いません。 Sublime Textを使っていきます。
+<p>今回はHTML&CSS, javascriptの基本をやるのでvagrant, VirtualBoxは使いません。 Sublime Textを使っていきます。</p>
 
 <p>それぞれの概要について</p>
 
@@ -105,6 +105,7 @@
     &lt;/body&gt;
   &lt;/html&gt;
 </pre>
+
 
 <p>打ち込んだらsample.htmlをChromeで開いてみましょう。 おそらく以下のようになってると思います。</p>
 
@@ -970,6 +971,305 @@ ul li {
 
 <p>今回はキレイなウェブページを作ったわけではありませんがこれでブロック要素の扱い方がわかったと思います。
 <br>また、当たり前ですが一回やっただけだと覚えられないので何回も復習しましょう。</p>
+
+<h1>javascript</h1>
+
+<p>それではjavascriptを学んでいきましょう。 はじめに述べた通りjavascriptはブラウザ上で実行できます。
+<br>今回はjavascriptの基礎、DOM操作しかやりません。 というより全部やるのは機能が多すぎて無理です。</p>
+
+<p>まずは定番Hello World行きましょう。 javascriptはhtmlファイルを作り、
+その中に&lt;script&gt;タグを定義して、そのタグの中にソースコードを挿入することで実行できます。</p>
+
+<h5>sample.html</h5>
+<pre class="brush: html;">
+  &lt;!DOCTYPE html&gt;
+  &lt;html&gt;
+    &lt;head&gt;
+      <meta charset="UTF-8">
+      <title>js sample</title>
+      <!-- CSSファイルは今回はいらないです。 -->
+      <script>
+        console.log("Hello World");
+      </script>
+    &lt;/head&gt;
+    &lt;body&gt;
+    &lt;/body&gt;
+  &lt;html&gt;
+
+</pre>
+
+<p>また.htmlファイルと.jsファイルを分けて.htmlから.jsを読み込んで実行することもできます。</p>
+
+<h5>sample.html</h5>
+<pre class="brush: html;">
+  &lt;!DOCTYPE html&gt;
+  &lt;html&gt;
+    &lt;head&gt;
+      <meta charset="UTF-8">
+      <title>js sample</title>
+      <!-- CSSファイルは今回はいらないです。 -->
+      <script src="sample.js"></script>
+    &lt;/head&gt;
+    &lt;body&gt;
+    &lt;/body&gt;
+  &lt;html&gt;
+</pre>
+<h5>sample.js</h5>
+<pre class="brush: js;">
+console.log("Hello World");
+</pre>
+
+<p>これからは後者の方法でやっていきます。 Htmlの項でつくったあなたのWEBサイトのディレクトリはこんな感じの構造になっていると思います。</p>
+
+<pre class="brush: xml;">
+  HomePage<br>
+    +---+ index.html
+        | style.css
+        | friend.png
+        +
+</pre>
+
+<p>これを以下のように変えましょう。</p>
+<pre class="brush: xml;">
+  HomePage<
+    +---+ index.html
+        | assets
+            +---+ css
+                    +---+ style.css
+                | image
+                    +---+ friend.png
+                | js
+                    +---+ sample.js
+</pre>
+
+<h5>index.html</h5>
+<pre class="brush: html;">
+  &lt;!DOCTYPE html&gt;
+  &lt;html&gt;
+    &lt;head&gt;
+      <meta charset="UTF-8">
+      <title>js sample</title>
+      <link rel="stylesheet" href="assets/css/style.css">
+      <script src="assets/js/sample.js"></script>
+    &lt;/head&gt;
+    &lt;body&gt;
+    .
+    .
+    .
+    &lt;/body&gt;
+  &lt;html&gt;
+</pre>
+<h5>sample.js</h5>
+<pre class="brush: js;">
+console.log("Hello World");
+</pre>
+
+<p>この状態にしてindex.htmlをブラウザで開いてみてからF12キーを押しましょう。 Console欄にHello Worldが表示されています。</p>
+
+<p>このようにしてsample.jsを編集していきましょう。</p>
+
+<p>jsは変数が使えます。 使ってみましょう。</p>
+
+<h5>sample.js</h5>
+<pre class="brush: js;">
+  int i = 6;
+  console.log(i); // C言語の%dはいりません。 普通にiと入れるだけで表示できます。
+  var v = 7.8;
+  console.log(v); // varというのは型推論というものでどんな値(文字、数字、クラスのオブジェクト, 配列オブジェクトなどなど)でも入れることができます。 すごい便利
+</pre>
+
+<p>またif, while, for, switchもC言語とまったく同じように使えます。 ここら辺は説明しません。</p>
+
+<p>次に配列を使っていきましょう。</p>
+
+<pre class="brush: js;">
+  var myArray = [0, 5, 3];
+
+  console.log(myArray[0]);
+  console.log(myArray[1]);
+  console.log(myArray[2]);
+</pre>
+
+<p>配列型変数は実は参照型というものなのです。 ここで値型と参照型について学びましょう。</p>
+
+<ul>
+  <li>値型 : 実際の値を入れて扱う型、 例えばint i = 0; とか double r = 8.9;とかは実際の値が入っていますよね？ これを値型といいます。</li>
+  <li>参照型 : データが存在するアドレスを指し示してそこの中身を参照する型。 例で挙げるとポインタ、アドレスなどです。</li>
+</ul>
+
+<p>値型は具体的なイメージが湧くと思いますが参照型はすこし厳しいでしょうか。 例を挙げていきます。</p>
+
+<pre class="brush: js;">
+  var myArray = [4, 5, 3, 9];
+
+  var subArray = myArray;
+
+  myArray[0] = 46;
+
+  console.log(myArray[0]);
+  console.log(myArray[1]);
+  console.log(myArray[2]);
+
+  console.log(subArray[0]);
+  console.log(subArray[1]);
+  console.log(subArray[2]);
+</pre>
+
+<p>subArrayはmyArrayが指し示しているデータのアドレスと同じアドレスを指し示しているのでmyArrayの値を変えるとsubArrayの値も変わってしまいます。</p>
+
+<p>これが参照型の性質です。 覚えておきましょう。</p>
+
+<p>また配列は自由にn次元配列のようなものを作れます。</p>
+
+<pre class="brush: js;">
+  var myArray = [[4, 6], [7, 7, 4], 2, 5];
+
+  console.log(myArray[0][1]);
+  console.log(myArray[2]);
+</pre>
+
+<p>また、以下のような配列を操作するメソッドも用意されています。</p>
+
+<pre class="brush: js;">
+  var myArray = [[4, 6], [7, 7, 4], 2, 5];
+
+  myArray.push(4); // 最後尾に4を追加する。
+  myArray.push([9, 5, 6]); // 最後日に[9, 5, 6]を追加する。
+
+  console.log(myArray);
+</pre>
+
+<pre class="brush: js;">
+  var myArray = [[4, 6], [7, 7, 4], 2, 5];
+
+  var i = myArray.pop();// 最後尾から要素を取り出す。
+
+  console.log(myArray); 
+  console.log(i);
+</pre>
+
+<pre class="brush: js;">
+  var myArray = [[4, 6], [7, 7, 4], 2, 5];
+
+  var i = myArray.shift(); // 先頭から要素を取り出す
+
+  console.log(myArray);
+  console.log(i);
+</pre>
+
+<pre class="brush: js;">
+  var myArray = [[4, 6], [7, 7, 4], 2, 5];
+
+  myArray.unshift(["jjjjj", "jgerijghi", 8.4]); // 先頭に要素を追加する
+
+  console.log(myArray);
+</pre>
+
+<p>次に関数を作りましょう。 以下のコードを打ってみてください。</p>
+
+<pre class="brush: js;">
+  function minusFive(num) {
+    return num - 5;
+  }
+  // C言語みたいに関数とその引数に型を宣言する必要はありません。 なんでも引数に入れてなんでも返せます。 これまた便利ですね。
+
+  console.log(minusFive(8));
+</pre>
+
+<p>最後に配列とは一味違う連想配列というものをやりましょう。 以下のコードを見てください。まずは連想配列の定義方法を学びます。</p>
+
+<pre class="brush: js;">
+  var myHashA = {
+    a : "A_item", // : の左側がキー値といいます、右側が中身です。 
+    b : "B_item"
+  };
+
+  var myHashB = {
+    "a" : "A_item", // キー値を文字列にすることもできます。
+    "b" : "B_item"
+  };
+</pre>
+
+<p>次に連想配列のデータのとり方を学びます。 次のコードを打ちましょう。</p>
+
+<pre class="brush: js;">
+  var myHashA = {
+    a : "A_item",
+    b : "B_item"
+  };
+
+  var myHashB = {
+    "a" : "A_item",
+    "b" : "B_item"
+  };
+
+  var test = myHashA;
+
+  console.log(test.a); // ハッシュ.キー値 で中身を取り出せる
+  console.log(test["a"]); // ハッシュ["キー値"]でも取り出せる。
+  console.log(test.b);
+  console.log(test["b"]);
+
+
+  test = myHashB;
+
+  console.log(test.a); // キー値が文字列だろうと扱いは変わりません。
+  console.log(test["a"]);
+  console.log(test.b);
+  console.log(test["b"]);
+
+</pre>
+
+<p>これでハッシュを扱うことができました。 これにて基本文法は終了です。</p>
+
+<h2>DOMとは？</h2>
+
+<p>Document Object Modelの略です。 単純に言うとhtmlファイルの中の要素のimgとかdivとかにアクセスする仕組みのことです。</p>
+
+<p>それでは実際にDOM操作やってみましょう。 MyHomePageのindex.htmlに以下の要素を追加してください</p>
+
+<h5>index.html</h5>
+<pre class="brush: xml; first-line: 53;">
+  <div class="friends">
+    <h2>友達一覧</h2>
+    <ul>
+      <li>
+        <img src="friend.png" class="friends-img" >
+        <h4 class="friends-name" >Aくん</h4>
+      </li>
+      <li>
+        <img src="friend.png" class="friends-img" >
+        <h4 class="friends-name" >Bくん</h4>
+      </li>
+    </ul>
+  </div>
+
+  <!-- 追加部分 -->
+  <div class="addSpace">
+    <div id="addId"></div>
+    <div class="addClass"></div>
+  </div>
+  <!-- -->
+</pre>
+
+<p>追加部分の操作をしていきましょう。</p>
+
+<h5>sample.js</h5>
+<pre class="brush: js;">
+  var divId = getElementById('addId');
+  var divClass = getElementByClassName('addClass');
+
+  divId.innerHTML="Id指定によるHTMLの追加";
+  divClass.innerHTML="Class指定のよるHTMLの追加"
+</pre>
+
+<p>これで追加部分の要素にHTMLが追加されました。</p>
+
+<p>DOM操作のイメージはこんな感じです。 要素を指定してその中の変数やメソッドを駆使して中身を書き換える、この流れに従えばどうにかなります。</p>
+
+<p><a href="http://qiita.com/kouh/items/dfc14d25ccb4e50afe89">もう少し詳しくやりたい方はこちらで学んでみてください。</a></p>
+
+<p>以上で終了です。 javascriptはあまり踏み込めませんでしたが興味ある方はやってみてください。</p>
 
       </article>
 
