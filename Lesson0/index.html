@@ -39,7 +39,7 @@
 <p>この中から対応する環境のものをportable versionではない普通のリンクからダウンロードしてください。またインストールの設定はすべてデフォルトで大丈夫です。</p>
 
 <p>インストールしたらSublime Textを起動してください。</p>
-<p>それではこれからHtml, css, javascript, rubyの文書をきれいに整形するための基本設定をしていきます。</p>
+<p>それではこれからHtml, css, javascript, rubyの文書をきれいに整形するための基本設定をしていきます。(この基本設定はなるべく家でやってください。 プロキシの設定が面倒なので・・・)</p>
 
 <p>(1) Sublime textのメニューバーから「Preferences」->「Settings - User」の順に選択</p>
 
@@ -64,16 +64,14 @@
 <p>(3)次にパッケージをダウンロードします。「View」->「Show console」の順に選択後、下に入力バーが表示されるのでそこにリンク先のコードをコピペしてEnter.</p>
 <h3><a href="https://packagecontrol.io/installation">コードのリンク先</a></h3>
 
-<img src="">
-
+<img src="image/1.png">
 
 <p>(4)いったんSublime Textを終了し再び起動。 そのあと画面で「Ctrl + Shift + p」を押す。上から入力バーが出てくるのでそこに「install package」と入力。</p>
 
 <p>(5)
 パッケージ一覧が出てくるので以下のパッケージをインストール(最初はこれくらいでいいと思います。 もし調べてみて他に入れたいパッケージが出てきたら自分で入れてみてください。)</p>
 <ul>
-<li>HTML5 ・・・HTML5の文書をきれいにしてくれる</li>
-<li>CSS Snippets ・・・ CSSの予測変換機能</li>
+<li>Emmet ・・・HTML, CSSの文書をきれいにしてくれる</li>
 <li>TrailingSpaces ・・・ いらない空白文字を赤色で教えてくれる</li>
 </ul>
 
@@ -107,19 +105,22 @@ PC上に仮想環境を構築するためのソフトウェアです。ダウン
 
 <p>インストールのオプションはすべてデフォルトで問題ありません。 もちろん好きな設定にするのは自由です。</p>
 
-<h6>※MacPCの方はここから読んでください</h6>
-
 <p>それではインストールしたGit Bash(Macの方はTerminal)を使ってvagrant, VirtualBoxによる仮想環境を立ち上げていきましょう。</p>
 
 <p>VagrantはコンソールからOSのイメージをダウンロードすることもできるのですが
-そのOSにRuby, rails, MySQL等々入れなければいけないので私があらかじめ入れておいてpackage化したものを皆さんに使ってもらいます。</p>
+そのOSにRuby, rails, MySQL, Apache等々入れなければいけないので私があらかじめ入れておいてpackage化したものを皆さんに使ってもらいます。(一から構築するのも勉強になります。 が時間があるときにやってください。)</p>
 
 <p>今回はCentOS6.5を使うのですがこれにした理由としてはまずCentOS7.xから大きく仕様が変わったこと、CentOS6.xの方がまだまだ資料が多いことから選びました。 気に入らない人は自分でCentOS7.x, Ubuntuなどをダウンロードして初めから設定してもらってもかまいません。</p>
 
 <p>まず以下のリンクからpackage.boxとVagrantfileをダウンロードしてください。</p>
 
-<h4><a href="https://www.dropbox.com/s/xfbng4zzeosai57/package.box?dl=0">package.box</a></h4>
-<h4><a href="https://www.dropbox.com/s/jkrlzhb6kaigevj/Vagrantfile?dl=0">Vagrantfile</a></h4>
+<h4><a href="https://www.dropbox.com/s/a0yywd6kg0eouhd/package.box?dl=0">package.box</a></h4>
+<h4><a href="https://www.dropbox.com/s/4jk7bw8zbqkqx2v/Vagrantfile?dl=0">Vagrantfile</a></h4>
+
+<p>Vagrantfileに拡張子.txtがついている場合がありますのでその時は拡張子を消してください。</p>
+
+<p><a href="http://qa.nifty.com/cs/catalog/faq_nqa/qid_15385/1.htm">ファイルの拡張子表示方法</a></p>
+<p><a href="https://www.ipentec.com/document/document.aspx?page=windows-windows-10-set-developer-mode">ついでにWindowsを開発者モードにする方法</a></p>
 
 <p>続いてGitBashを立ち上げましょう。</p>
 立ち上げたらホームディレクトリに「vagrant」というディレクトリを、そしてその中に進んでからさらに「centos6_5」というディレクトリを作りましょう。(ディレクトリ名はなんでもいいですがわかりやすい名前にした方がいいです)
@@ -131,6 +132,7 @@ mkdir centos6_5
 </pre>
 
 <p>そして「centos6_5」の中に先ほどダウンロードした二つのファイルをドラッグアンドドロップで入れてください。</p>
+<h5>centos6_5はWindowsの場合 C:\Users\あなたのユーザー名\vagrant\centos6_5 です。</h5>
 
 <p>それが終わったら「centos6_5」の中で以下のコマンドを打ち込みましょう。</p>
 <pre class="brush: bash;">
@@ -177,14 +179,16 @@ vagrant box add CentOS6.5 ./package.box
 <p>それではHeidiSQLの設定をしていきましょう、まず「vagrant up」で立ち上げてください。</p>
 <p>そしてHeidiSQLを起動、その後左下にある新規というボタンをクリック。</p>
 
-<img src="">
+<img src="image/2.png">
  
 <p>上と同じように設定してください。 </p>
+
+<img src="image/3.png">
  
 <p>また「SSHトンネル」のタブで上と同じように設定しましょう。また「plink.exe」はその下にあるリンク先より探してダウンロードしてください。</p>
 <p>ここまで設定出来たら右下の「開く」ボタンを押してみてください。</p>
 
-<img src="">
+<img src="image/4.png">
  
 <p>上の画像のような画面が出てきたら成功です。</p>
 
