@@ -172,9 +172,32 @@
 
         <p>だいぶ雑ですがこれでTweetのモデルのようなものが出来上がりました。</p>
 
-        <p>最後にクラスの継承</p>
+        <p>最後にクラスの継承を学びます。 ただ文法だけを学ぶのでどう扱うのかは周りの人に聞いてみてください←すいません・・・</p>
 
+        <h2>クラスの継承</h2>
 
+        <p>クラスの継承は以下のように < を使って実装していきます。</p>
+
+        <pre class="brush: ruby;">
+          class SampleBase
+            @@temp_a = 2
+
+            def initialize
+              @temp_b = 3
+            end
+
+            def showValues
+              puts "temp_a: #{@@temp_a} \n temp_b: #{@temp_b}""
+          end
+
+          class SampleA < SampleBase
+            def initialize
+              @temp_c = 6
+            end
+          end
+        </pre>
+
+        
       </article>
 
       <div class="right-content">
