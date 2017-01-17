@@ -25,7 +25,156 @@
     <div class="contents clearfix">
 
       <article class="left-content">
-工事中
+        <h1>第三回RubyOnRails講習 Ruby基礎文法編</h1>
+
+        <p>本日のRuby講習ですが以下のサイトをもとに進めていきます。</p>
+        <a href="http://codeprep.jp/">CODE PREP</a>
+        <p>このサイトでまずはRubyを触ってみましょう。</p>
+
+        <h2>Rubyの実行環境</h2>
+        <p>今回は簡単なコンソール出力程度のことをやるだけなのでIdeone.comというオンラインインタプリタを使います。</p>
+        <a href="http://ideone.com/">Ideone</a>
+
+        <p>左下のchooseLanguageからRubyを選びましょう。 あとはコードを書いてRunすれば実行できます。</p>
+
+        <p>また今回は仮想環境を立ち上げるまでもないですが、私たちがこれから立ち上げる仮想環境には<span>irb</span>という手軽にRubyを実行できるものが入っています。</p>
+        <p>仮想環境内で irb と打つとすぐ使えるので時間があれば試してみてください。</p>
+
+        <p>Rubyの文法は今まで私たちが大学で触れてきたC言語に比べてかなり特殊です。 慣れるまでかなりの時間を要すると思いますが頑張っていきましょう。</p>
+
+        <h3>メソッドとは</h3>
+        <p>まず初めに皆さんに知ってもらいたいのは関数とメソッドの違いについてなのですが、これは単純で関数は何か機能を持ったもので外部からそれが呼び出せるもの(私たちが今まで学校のC言語で見てきたやつです。)、メソッドはクラスの中に含まれる関数のことを指します。</p>
+
+        <p>外にあれば関数、クラス(クラスがピンと来なければ他の人に聞いてみてください。)の中に入ってればメソッドと覚えましょう。</p>
+
+        <p>Rubyはプログラミングパラダイムとしてオブジェクト指向しかもっていないので関数は使いません。(一見関数に見えるものでも実はすべてクラスに属しています。)</p>
+
+        <p>一方python, javascript等のオブジェクト指向と関数型言語(合成関数みたいな記述ができる言語)の要素も持っている言語は関数も使えますし、メソッドでも行けます。</p>
+        <p></p>
+
+        <p>Rubyのクラス定義</p>
+
+        <pre class="brush: ruby;">
+          class Sample
+            # クラスの中身、Rubyは＃でコメントアウトができます。
+            def sample
+            end
+
+            def self.sample1
+            end
+          end
+        </pre>
+
+        <p>Rubyのメソッドには二種類あります。</p>
+        <ul>
+          <li>クラスメソッド : クラスが使用できるメソッドです。 わざわざインスタンスを生成しなくても使えるメソッドのことです。</li>
+          <li>インスタンスメソッド : よく目にするメソッドです。 生成したインスタンスからしか呼び出すことができません。</li>
+        </ul>
+
+        <p>具体例でみていきましょう。まずはクラスメソッド</p>
+
+        <pre class="brush: ruby;">
+          class Tweet
+            def self.get_tweet_count_minute # メソッド定義の前にself.をつけるとクラスメソッドになります。
+              return 3
+            end
+          end
+          puts Tweet.get_tweet_count_minute
+        </pre>
+
+        <p>上のようにわざわざインスタンスを生成しなくてもクラスメソッドなら呼び出せます。</p>
+
+        <pre class="brush: ruby;">
+          class Tweet
+            def get_tweet_count_minute
+              return 2
+            end
+          end
+
+          tweet = Tweet.new
+          puts tweet.get_tweet_count_minute
+        </pre>
+
+        <p>インスタンスメソッドの場合、このようにインスタンスを生成してから呼び出す必要があります。</p>
+
+        <p>ではこれらを混ぜて使ってみましょう。 下のソースコードを書いて実行してみてください。</p>
+
+        <pre class="brush: ruby;">
+          class Tweet
+            def self.get_tweet_count_minute
+              return 2
+            end
+
+            def get_tweet
+              return "町田なう"
+            end
+          end
+
+          puts Tweet.get_tweet_count_minute
+          tweet = Tweet.new
+          puts tweet.get_tweet
+        </pre>
+
+        <h3>コンストラクトを使ってみる</h3>
+        <p>Rubyの場合、コンストラクタはinitializeメソッドで定義されます。(コンストラクタとはnewが呼び出されると必ず呼び出されるメソッドのことです。)</p>
+        <pre class="brush: ruby;">
+          class Tweet
+            def self.get_tweet_count_minute
+              return 2
+            end
+            def initialize
+              puts "Tweetクラスのインスタンスが生成されました。"
+            end
+            def get_tweet
+              return "町田なう"
+            end
+          end
+
+          puts Tweet.get_tweet_count_minute
+          tweet = Tweet.new
+          puts tweet.get_tweet
+        </pre>
+
+        <h2>クラスに変数を定義する</h2>
+        <p>これもメソッドと同じようにクラス変数とインスタンス変数というものがあります。</p>
+
+        <p>クラス変数の定義は @@変数名 のように変数名に二つ@をつけ、 インスタンス変数は @変数名 のように一つだけ@をつけます。</p>
+
+        <p>これも実際に使ってみましょう。</p>
+
+        <pre class="brush: ruby;">
+          class Tweet
+            @@tweet_count_minute = 3
+
+            def self.get_tweet_count_minute
+              return 2
+            end
+            def initialize
+              puts "Tweetクラスのインスタンスが生成されました。"
+              @@tweet_count_minute += 1
+              @tweet_text = "町田なう"
+            end
+            def get_tweet
+              return @tweet_text
+            end
+            def set_tweet
+              puts "Tweetを入力してください"
+              @tweet_text = gets.chomp
+            end
+          end
+
+          puts Tweet.get_tweet_count_minute
+          tweet = Tweet.new
+          puts tweet.get_tweet
+          tweet.set_tweet
+          puts tweet.get_tweet
+        </pre>
+
+        <p>だいぶ雑ですがこれでTweetのモデルのようなものが出来上がりました。</p>
+
+        <p>最後にクラスの継承</p>
+
+
       </article>
 
       <div class="right-content">
