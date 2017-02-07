@@ -9,6 +9,9 @@
 
     <script type="text/javascript" src="../syntaxHighlighter/scripts/shCore.js"></script>
     <script type="text/javascript" src="../syntaxHighlighter/scripts/shBrushJScript.js"></script>
+    <script type="text/javascript" src="../syntaxHighlighter/scripts/shBrushXml.js"></script>
+    <script type="text/javascript" src="../syntaxHighlighter/scripts/shBrushBash.js"></script>
+    <script type="text/javascript" src="../syntaxHighlighter/scripts/shBrushRuby.js"></script>
     <script type="text/javascript" src="../syntaxHighlighter/scripts/shAutoloader.js"></script>
     <link type="text/css" rel="stylesheet" href="../syntaxHighlighter/styles/shCoreDefault.css"/>
     <script type="text/javascript">
@@ -19,13 +22,337 @@
   </head>
   <body>
 
-    <div class="navbar"></div>
     <header></header>
 
     <div class="contents clearfix">
 
       <article class="left-content">
-工事中
+        <h1>第四回 RubyOnRails 講習 </h1>
+        <p>みなさんは前回の講習で ルーティング、コントローラー、ビュー の流れでコードを書いていき簡単な Rails プログラムを書きました。 <br>今回は本格的に掲示板WEBサービスを作っていきましょう。</p>
+
+        <p>まずはゼロから作るために前回の講習でつくった /vagrant/projects 内の kokenforum プロジェクトを消しましょう。</p>
+        <pre class="brush: bash;">
+          $ cd /vagrant/projects
+          $ rm -rf kokenforum
+        </pre>
+
+        <p>続いて MySQL の kokenforum_development, kokenforum_test データベースを削除(drop)してください。 HeidiSQLでデータベースを右クリック ドロップ で削除できます。</p>
+
+        <p>そしてもう一回 Rails のプロジェクトを作りましょう。 </p>
+        <pre class="brush: bash;">
+          $ rails new kokenforum -d mysql (プロジェクトの作成は gem をインストールするのでインターネット環境で行ってください。)
+        </pre>
+
+        <p>さぁ Rails でWEBサービスを作っていくときはどうするのでしたっけ？</p>
+                <h3>Routing → Controller → View</h3>
+        <p>の順番で作っていくんでしたね。 <br>慣れていくとWEBサービスの全体の Model(データベースのテーブル) から設計してそれを軸に上の実装をしていくのがいいのですが一番理解してほしいのが上の流れなので今回はデータを格納する必要が出てきたら逐一 Model を実装していくスタイルで行きます。</p>
+
+        <h2>Gemfile の設定をする</h2>
+        <p>一番初めにCentOSにインストールされている MySQL のバージョンと gem mysql2 のバージョンを合わせましょう</p>
+
+        <h5>Gemfile</h5>
+        <pre class="brush: rails; first-line: 12;">
+          gem 'mysql2', '0.3.18'
+        </pre>
+
+        <h5>Gemfile</h5>
+        <pre class="brush: rails;">
+          #これに関してはどこに記述してもかまいません。 ただし自分で追加したことが一目でわかるような場所に記述しましょう。
+          gem 'pry-rails' # デバッグ用の便利なgem
+          gem 'sprockets' # javascriptのプリプロセッサgem プリプロセッサプログラムとはプログラム実行前に呼び出されるプログラムのこと
+        </pre>
+
+        <p>Gemfile.lockを削除した後、以下のコマンドでプロジェクトにgemをinstallしてください。</p>
+
+        <pre class="brush: bash;">
+          # kokenforum 
+          $ bundle install
+        </pre>
+        <p>これで一番初めの設定は終わりました。</p>
+
+        <h2>投稿内容一覧表示画面(TOP画面)を実装する(前準備)</h2>
+        <p>掲示板といえばTOP画面がありそこに新しい投稿順に表示されているTOP画面は欠かせませんね。 まずはそこから実装していきましょう。</p>
+        <p>投稿内容は当たり前ですがデータなのでModelを定義しなければなりません。 その前にデータベースを作りましょう</p>
+
+        <pre class="brush: bash;">
+          $ cd /vagrant/projects/kokenforum
+          $ rake db:create # kokenforum/database.yml の設定に従ってデータベースを作成する
+        </pre>
+
+        <p>続いて投稿内容を保存するModel contents を作りましょう。</p>
+        <h5>kokenforum</h5>
+        <pre class="brush: bash;">
+          $ rails g model content
+        </pre>
+
+        <p>Modelクラスを生成したら次は Migration ファイルの実行です。 まず Migrationファイルを記述しましょう。</p>
+        <h5>kokenforum/db/migrate/20170205120939_create_contents   (ファイル名は時刻によって違います)</h5>
+        <pre class="brush: rails;">
+        class CreateContents < ActiveRecord::Migration
+          def change
+            create_table :contents do |t|
+              t.string    :name # ユーザー名の保存
+              t.text      :text # 投稿内容の文字列を保存
+              t.text      :image # 画像の場所のURIを保存
+              t.timestamps # 作成時刻、編集時刻のカラム追加
+            end
+          end
+        end
+        </pre>
+
+        <p>そして Migration の実行です。 これでデータベースに contentテーブルが作成されます。</p>
+        <pre class="brush: bash;">
+          $ rake db:migrate
+        </pre>
+
+        <p>この状態で HeidiSQLを開いてください。 以下のようなテーブル構成になっていると思います。</p>
+        <img src="img/1.png">
+
+        <p>間違えてマイグレーションを実行してしまったら rake db:rollback でしたね</p>
+        <p>TOP画面を実装するのでテーブルに以下のように何か適当なダミーデータを入れておいてください。</p>
+        <img src="img/2.png">
+        <h4>画像参考元 <a href="http://www.gibe-on.info/entry/%E3%81%AC%E3%81%84%E3%81%90%E3%82%8B%E3%81%BF%E3%81%AB%E3%81%97%E3%81%8B%E8%A6%8B%E3%81%88%E3%81%AA%E3%81%84%EF%BC%81%E3%83%8A%E3%83%9E%E3%82%B1%E3%83%A2%E3%83%8E%E3%81%AE%E8%B5%A4%E3%81%A1%E3%82%83e/">リンク</a></h4>
+
+        <p>最後にRouting Controller View に入る前にViewがどのように表示されるかを理解していきましょう。</p>
+
+        <p>以下のファイルを開いて下さい。</p>
+        <h5>kokenforum/app/views/layouts/application.html.erb (erbについては後程説明します。 HTMLファイルと考えてくれてかまいません。)</h5>
+        <pre class="brush: html;">
+          &lt;!DOCTYPE html&gt;
+          &lt;html&gt;
+          &lt;head&gt;
+            <title>Kokenforum</title>
+            <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+            <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+            <%= csrf_meta_tags %>
+          &lt;/head&gt;
+          &lt;body&gt;
+
+          <%= yield %>
+
+          &lt;/body&gt;
+          &lt;/html&gt;
+        </pre>
+
+        <p>この <%= yield %> という部分に Viewのhtmlを埋め込んでいきます。<h5>(流れがよく見えないとは思いますが後でわかるので今はこういうファイルがあるんだということだけ覚えてください。)</h5></p>
+        <p>それ以外の部分はすべてのページの共通部分ということになります。 なので全ページ共通であるheaderやfooterやmetaタグでの読み込み、CSS, jsファイルの読み込み等は原則 application.html.erb に書いていきます。</p>
+
+        <p>kokenforum/app/models/content.rb の中を見てみてください。 Contentクラスが ActiveRecord::Base を継承しているのが確認できます。</p>
+
+        <h2>投稿内容一覧表示画面(TOP画面)を実装する(Routing → Controller → View の順で実装していく)</h2>
+
+        <p>Routingの実装行きましょう</p>
+
+        <h5>kokenforum/config/routes.rb</h5>
+        <pre class="brush: rails;">
+        Rails.application.routes.draw do
+          get 'top' => 'top#index'
+        end
+        </pre>
+
+        <p>次は Controller の実装です。TOP画面を実装するのでそれを担う Controller を作りましょう。</p>
+
+        <pre class="brush: bash;">
+          $ rails g controller top
+        </pre>
+
+        <h5>kokenforum/app/controllers/top_controller.rb</h5>
+        <pre class="brush: rails;">
+        class TopController < ApplicationController
+          def show
+            # contentsテーブルからすべてのデータを取ってくる。  @がつくと Viewでも変数を使えるようになる。 
+            @contents = Content.all # ハッシュデータ形式
+          end
+        end
+        </pre>
+
+        <p>最後に View を実装します。 View は rails g のようなコマンドは必要ありません。 
+        ディレクトリに手作業で作ります。ただしcontrollerに対応するディレクトリ内に作り、名前もアクション名(コントローラーのメソッド名)に対応させなければなりません。</p>
+
+        <p>以下の名前でファイルを作ってください。(showメソッドを呼び出しているので名前はshow.html.erb, またerbを付け加えると HTMLにデータを埋め込むことができる)</p>
+        <h5>kokenforum/app/views/top/index.html.erb</h5>
+        <pre class="brush: rails;">
+          <div class="contents">
+            <% @contents.each do |content| %> &lt;!-- <% %> はRubyのコードを入れるためのタグ --&gt;
+            <div class="content">
+              <div class="name"><%=content[:name]%></div> &lt;!-- <%= %> は Rubyのコードにより生成した文字列を埋め込むためのタグ --&gt;
+              <div class="text"><%=content[:text]%></div>
+              <div class="image"><img src="<%= content[:image] %>"></div>
+            </div>
+            <% end %>
+          </div>
+        </pre>
+
+        <p>これで機能の実装が完了しました。 rails sでサーバーを立てブラウザで localhost:3000/top で開いてみましょう。</p>
+        <pre class="brush: bash;">
+          $ rails s -b 0.0.0.0
+        </pre>
+        <h4>また-b 0.0.0.0は前回付け加えてるのを忘れていました。 </h4>
+        <h4>-b とはbindingの略で 指定のIPアドレスでLAN内アドレスを固定するという意味です。 </h4>
+        <h4>仮想環境とHostのマシン(みなさんのPCです)は独立しているときと同じ挙動をするのでつけないとアクセスできません。</h4>
+        <h4> 0.0.0.0はデフォルトルート(気になる方は調べてみてください)と言われるものでこの場合はすべてのIPアドレスからの接続を受け付けているという意味です。</h4>
+
+        <p>application.html.erbにViewが埋め込まれるので表示されるhtmlは以下のようになります。</p>
+        <pre class="brush: html;">
+          &lt;!DOCTYPE html&gt;
+          &lt;html&gt;
+          &lt;head&gt;
+            <title>Kokenforum</title>
+            <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+            <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+            <%= csrf_meta_tags %>
+          &lt;/head&gt;
+          &lt;body&gt;
+            <div class="contents">
+              <!-- contentsの個数分これが繰り返される -->
+              <div class="content">
+                <div class="name">takuto</div>
+                <div class="text">Kawaiii!!</div>
+                <div class="image"><img src="contentのURL"></div>
+              </div>
+            </div>
+          &lt;/body&gt;
+          &lt;/html&gt;
+        </pre>
+
+        <p>表示される画面は次のようになっていると思います。</p>
+        <img src="3.png">
+        <p>TOP画面に投稿内容が表示されるだけというのも悲しいので<br>
+        <h5>headerをつくる</h5>
+        <h5>最新の投稿の三件の表示</h5>
+        <h5>footerの表示</h5>
+        </p>
+
+        <p>これくらい着飾っていたらかなり見栄えがいいですね。 ただ header, footer は全ページ共通のものとして扱うことができます。</p>
+        <h5>application.html.erb</h5>
+        <p>全ページ共通のものはこれに書いていくといいんでしたよね。</p>
+
+        <h6>app/views/layouts/application.html.erb</h6>
+        <pre class="brush: html;">
+        </pre>
+
+        <p>投稿一覧へ行く前に リダイレクト設定をしましょう。</p>
+
+        <p>次は投稿一覧表示画面を作りましょう。</p>
+        <h1>投稿一覧画面を実装する</h1>
+        <p>さあ新しく新規投稿画面を作りましょう<br>新しい機能を作るのはどうやるんでしたっけ？</p>
+
+        <h4>Routing → Controller → View</h4>
+
+        <p>この流れに沿って開発していくんでしたね</p>
+
+        <h3>投稿画面の Routing 設定</h3>
+        <p>contentsを全て見せますから contentsコントローラーのindexアクションとでもしましょう</p>
+
+        <h6>kokenforum/config/routes.rb</h6>
+        <pre class="brush: rails;">
+        Rails.application.routes.draw do
+          root to: 'top#index'
+          ↓ 追加部分
+          get 'contents' => 'contents#index' # 投稿内容すべてを表示するアクション contentsコントローラーのindexアクションを呼び出す。
+        end
+        </pre>
+
+        <p>contents controllerはまだ作っていないので作りましょう</p>
+
+        <pre class="brush: bash;">
+          $ rails g controller contents
+        </pre>
+
+        <p>これで controller.rb と Viewファイルをいれるディレクトリが作られました。
+        (それ以外にも作られていますが後で説明します。 またログを見れば何が作られているかがわかります。)</p>
+        <h6>kokenforum/app/controllers/contents_controller.rb</h6>
+        <pre class="brush: rails;">
+        class ContentsController < ApplicationController
+          def index
+            @contents = Content.all
+          end
+        end
+        </pre>
+
+        <h6>kokenforum/app/views/contents/index.html.erb</h6>
+        <pre class="brush: rails;">
+        <div class="contents">
+          <% @contents.each do |content| %> <!-- <% %> はRubyのコードを入れるためのタグ -->
+          <div class="content">
+            <div class="name"><%=content[:name]%></div> <!-- <%= %> は Rubyのコードにより生成した文字列を埋め込むためのタグ -->
+            <div class="text"><%=content[:text]%></div>
+            <div class="image"><img src="<%= content[:image] %>"></div>
+          </div>
+          <% end %>
+        </div>
+        </pre>
+
+        <p>投稿一覧画面が作り終わりました。</p>
+
+        <h1>新規投稿画面をつくる</h1>
+        <p>さあ新しく新規投稿画面を作りましょう<br>新しい機能を作るのはどうやるんでしたっけ？</p>
+
+        <h3>Routing → Controller → View</h3>
+
+        <p>この流れに沿って開発していくんでしたね、しつこいようですがすごい大事なことなんです。</p>
+
+        <h2>新規投稿画面の Routing 作成</h2>
+        <h6>kokenforum/config/routes.rb</h6>
+        <pre class="brush: rails;">
+        Rails.application.routes.draw do
+          root to: 'top#index'
+
+          get 'contents' => 'contents#index' # 投稿内容すべてを表示するアクション contentsコントローラーのindexアクションを呼び出す。
+          get 'contents/new' => 'contents#new' # 新規投稿アクション
+        end
+        </pre>
+
+        <p>controller (contents controllerはすでに作ってあるので rails g は要りません)</p>
+        <h6>kokenforum/app/controllers/contents_controller.rb</h6>
+        <pre class="brush: rails;">
+        class ContentsController < ApplicationController
+          def index
+            @contents = Content.all
+          end
+
+          def new
+            # 新規投稿画面のアクション、データベースから取り出す必要も保存する必要もないので何もしない
+          end
+        end
+        </pre>
+        <p>メソッドの中身は何も書いていませんが、それでもメソッド定義だけはしなければなりません</p>
+
+        <p> View の作成、および実装 </p>
+        <h6>kokenforum/app/views/new.html.erb</h6>
+        <pre class="brush: rails;">
+          <!-- formタグと同じ役割です。 これを使うとタグ内に rubyのコードを埋め込めるのでよく使われます(他にも利点がありますが知りたい方は調べてください。) -->
+          <%= form_tag('/contents/', method: :post) do %>
+            <div class="container">
+              <h3>投稿する</h3>
+              <input placeholder="タイトル" type=text name="content_name"><br>
+              <textarea id="editor" rows=5 cols=23 name="source_code"></textarea><br>
+              <input placeholder="URL" type=text name="image_url"><br>
+              <input type="submit" value="投稿する" class="btn btn-primary my-btn dark">
+            </div>
+          <% end %>
+        </pre>
+
+        <p>新規投稿画面完成です</p>
+
+        <p>基本的なものはこれでOKですね(ここまで来たら 新規投稿画面の投稿した後の処理の実装の仕方とpry-rails というデバッグ用のgemの使い方を教えるので手を挙げてください)</p>
+
+        <h2>Rails 問題(ここら辺は結構難しいと思いますがチャレンジしてみてください。) また問題文の意味が分からないときは聞いてください。</h2>
+
+        <h5>問1(content_controller.rbに show メソッドを実装して作ってみてください。)</h5>
+        <h6>頑張ればできるレベル、せめてここだけは終わらせてから先に進んでください もちろんほかの人に聞いてもOK</h6>
+        <p>content の詳細画面を実装してください。 Twitterでいうtweetをクリックしたら目的のTweet一つだけ出てくるあの画面です。</p>
+        <h6>この問題に関してですが contents のindex(id)がわからないとできないと思います。 これは routes.rb で get 'content/:id/show' => 'contents#show' のようにやると params[:id]で URLの:idが取れます。</h6>
+        <h5>問2(めちゃめちゃ頑張ればできるレベル contents_controller.rb に edit メソッドを実装して作ってみてください。 ActiveRecord update で検索してみるとよい)</h5>
+        <p>content の編集画面を実装してください。</p>
+        <h5>問3(かなり難しいです。 出来なくてもいいかな・・？  content_controller.rb に delete メソッドを実装して作ってみてください。ActiveRecord delete で検索するとよい)</h5>
+        <p>指定したcontent を削除する処理を実装してください。</p>
+
+        <h1>ログイン機能を作ろう</h1>
+        <p>ユーザーの新規登録画面、ユーザーセッション管理等結構めんどくさい処理を実装しないと
+        ログイン機能は作れないのですが今回は 'device' という gemを使います。</p>
+
+        <p>ここから先はちょっと待ってください・・・・</p>
       </article>
 
       <div class="right-content">
