@@ -229,6 +229,50 @@
 
         <h6>app/views/layouts/application.html.erb</h6>
         <pre class="brush: html;">
+        &lt;!DOCTYPE html&gt;
+        &lt;html&gt;
+        &lt;head&gt;
+          <title>Kokenforum</title>
+          <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+          <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+          <%= csrf_meta_tags %>
+        &lt;/head&gt;
+        &lt;body&gt;
+          <header>
+            <div class="container">
+              <a href=""><div class="left-container"></div></a>
+              <div class="left-container">
+                <a href="">
+                  <div class="logo">KokenForum ~練習の場~</div>
+                </a>
+              </div>
+              <div class="right-container">
+                <ul>
+                  <li>My Page</li>
+                  <li><%= link_to '新規投稿' %></li>
+                  <li>Log in</li>
+                </ul>
+              </div>
+            </div>
+          </header>
+
+        <%= yield %>
+
+          <footer>
+            <div class="container">
+              <div class="left-container">2017 © developed by Takuto Oooka</div>
+
+              <div class="right-container"> 
+                <ul>
+                  <li>Koken wiki</li>
+                  <li>Koken home page</li>
+                </ul>
+              </div>
+            </div>
+          </footer>
+
+        &lt;/body&gt;
+        &lt;/html&gt;
         </pre>
 
         <p>投稿一覧へ行く前に リダイレクト設定をしましょう。</p>
@@ -352,7 +396,53 @@
         <p>ユーザーの新規登録画面、ユーザーセッション管理等結構めんどくさい処理を実装しないと
         ログイン機能は作れないのですが今回は 'device' という gemを使います。</p>
 
-        <p>ここから先はちょっと待ってください・・・・</p>
+        <p>deviceをインストールしましょう 以下のように編集してください。</p>
+        <h5>Gemfile</h5>
+        <pre class="brush: rails;">
+          gem 'devise'
+        </pre>
+
+        <pre class="brush: bash;">
+          $ bundle install
+        </pre>
+
+        <p>さらに devise の設定ファイルを作成しましょう 以下のコマンドを打ち込んでください。</p>
+        <pre class="brush: bash;">
+          $ rails g devise:install
+        </pre>
+        <h5>新規作成されるファイル</h5>
+        <ul>
+          <li>config/initializers/devise.rb</li>
+          <li>config/locales/devise.en.yml</li>
+        </ul>
+
+        <h2>User モデルを作成する</h2>
+        <p>deviseの Userモデルは作り方がちょっと違います。</p>
+
+        <pre class="brush: bash;">
+          $ rails g devise user
+        </pre>
+
+        <h5>新規作成されるファイル</h5>
+        <ul>
+          <li>app/models/user.rb</li>
+          <li>db/migrate/2017********_devise_create_users.rb</li>
+          <li>test/fixtures/users.yml</li>
+          <li>test/models/user_test.rb</li>
+        </ul>
+
+        <p>これでもうマイグレーションファイルも出来ちゃってますね、 さすが devise です</p>
+        <p>migrationしちゃいましょう。</p>
+
+        <pre class="brush: bash;">
+          $ rake db:migrate
+        </pre>
+
+        <p>HeidiSQLを確認してみてください。 usersテーブルが新しく作られていると思います。</p>
+
+        <h2>HTMLタグの代わりになる rails メソッド</h2>
+        <h5>link_to メソッド ・・・ html.erbの<% %>タグ内で使用できるメソッド。 &lt;a href=""&gt; と同じ役割</h5>
+
       </article>
 
       <div class="right-content">
