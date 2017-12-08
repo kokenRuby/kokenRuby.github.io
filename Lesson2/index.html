@@ -1,61 +1,62 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="../css/style.css">
-    <title>Koken Ruby on Rails</title>
-    <script src="../js/jquery-3.1.1.min.js"></script>
 
-    <script type="text/javascript" src="../syntaxHighlighter/scripts/shCore.js"></script>
-    <script type="text/javascript" src="../syntaxHighlighter/scripts/shBrushJScript.js"></script>
-    <script type="text/javascript" src="../syntaxHighlighter/scripts/shBrushRuby.js"></script>
-    <script type="text/javascript" src="../syntaxHighlighter/scripts/shAutoloader.js"></script>
-    <link type="text/css" rel="stylesheet" href="../syntaxHighlighter/styles/shCoreDefault.css"/>
-    <script type="text/javascript">
-      SyntaxHighlighter.all();
-    </script>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" href="../css/style.css">
+  <title>Koken Ruby on Rails</title>
+  <script src="../js/jquery-3.1.1.min.js"></script>
 
-    <script src="../js/application.js"></script>
-  </head>
-  <body>
+  <script type="text/javascript" src="../syntaxHighlighter/scripts/shCore.js"></script>
+  <script type="text/javascript" src="../syntaxHighlighter/scripts/shBrushJScript.js"></script>
+  <script type="text/javascript" src="../syntaxHighlighter/scripts/shBrushRuby.js"></script>
+  <script type="text/javascript" src="../syntaxHighlighter/scripts/shAutoloader.js"></script>
+  <link type="text/css" rel="stylesheet" href="../syntaxHighlighter/styles/shCoreDefault.css" />
+  <script type="text/javascript">
+    SyntaxHighlighter.all();
+  </script>
 
-    <div class="navbar"></div>
-    <header></header>
+  <script src="../js/application.js"></script>
+</head>
 
-    <div class="contents clearfix">
+<body>
 
-      <article class="left-content">
-        <h1>第二回RubyOnRails講習 Ruby基礎文法編</h1>
+  <div class="navbar"></div>
+  <header></header>
 
-        <p>本日のRuby講習ですが以下のサイトをもとに進めていきます。</p>
-        <a href="http://codeprep.jp/">CODE PREP</a>
-        <p>このサイトでまずはRubyを触ってみましょう。</p>
+  <div class="contents clearfix">
 
-        <h2>Rubyの実行環境</h2>
-        <p>今回は簡単なコンソール出力程度のことをやるだけなのでIdeone.comというオンラインインタプリタを使います。</p>
-        <a href="http://ideone.com/">Ideone</a>
+    <article class="left-content">
+      <h1>第1回RubyOnRails講習 Ruby基礎文法編</h1>
 
-        <p>左下のchooseLanguageからRubyを選びましょう。 あとはコードを書いてRunすれば実行できます。</p>
+      <p>本日のRuby講習ですが以下のサイトをもとに進めていきます。</p>
+      <a href="http://codeprep.jp/">CODE PREP</a>
+      <p>このサイトでまずはRubyを触ってみましょう。</p>
 
-        <p>また今回は仮想環境を立ち上げるまでもないですが、私たちがこれから立ち上げる仮想環境には<span>irb</span>という手軽にRubyを実行できるものが入っています。</p>
-        <p>仮想環境内で irb と打つとすぐ使えるので時間があれば試してみてください。</p>
+      <h2>Rubyの実行環境</h2>
+      <p>今回は簡単なコンソール出力程度のことをやるだけなのでIdeone.comというオンラインインタプリタを使います。</p>
+      <a href="http://ideone.com/">Ideone</a>
 
-        <p>Rubyの文法は今まで私たちが大学で触れてきたC言語に比べてかなり特殊です。 慣れるまでかなりの時間を要すると思いますが頑張っていきましょう。</p>
+      <p>左下のchooseLanguageからRubyを選びましょう。 あとはコードを書いてRunすれば実行できます。</p>
 
-        <h3>メソッドとは</h3>
-        <p>まず初めに皆さんに知ってもらいたいのは関数とメソッドの違いについてなのですが、これは単純で関数は何か機能を持ったもので外部からそれが呼び出せるもの(私たちが今まで学校のC言語で見てきたやつです。)、メソッドはクラスの中に含まれる関数のことを指します。</p>
+      <p>また今回は仮想環境を立ち上げるまでもないですが、私たちがこれから立ち上げる仮想環境には
+        <span>irb</span>という手軽にRubyを実行できるものが入っています。</p>
+      <p>仮想環境内で irb と打つとすぐ使えるので時間があれば試してみてください。</p>
 
-        <p>外にあれば関数、クラス(クラスがピンと来なければ他の人に聞いてみてください。)の中に入ってればメソッドと覚えましょう。</p>
+      <p>Rubyの文法は今まで私たちが大学で触れてきたC言語に比べてかなり特殊です。 慣れるまでかなりの時間を要すると思いますが頑張っていきましょう。</p>
 
-        <p>Rubyはプログラミングパラダイムとしてオブジェクト指向しかもっていないので関数は使いません。(一見関数に見えるものでも実はすべてクラスに属しています。)</p>
+      <h3>メソッドとは</h3>
+      <p>まず初めに皆さんに知ってもらいたいのは関数とメソッドの違いについてなのですが、これは単純で関数は何か機能を持ったもので外部からそれが呼び出せるもの(私たちが今まで学校のC言語で見てきたやつです。)、メソッドはクラスの中に含まれる関数のことを指します。</p>
 
-        <p>一方python, javascript等のオブジェクト指向と関数型言語(合成関数みたいな記述ができる言語)の要素も持っている言語は関数も使えますし、メソッドでも行けます。</p>
-        <p></p>
+      <p>外にあれば関数、クラス(クラスがピンと来なければ他の人に聞いてみてください。)の中に入ってればメソッドと覚えましょう。</p>
 
-        <p>Rubyのクラス定義</p>
+      <p>一方python, javascript等のオブジェクト指向と関数型言語(合成関数みたいな記述ができる言語)の要素も持っている言語は関数も使えますし、メソッドでも行けます。</p>
+      <p></p>
 
-        <pre class="brush: ruby;">
+      <p>Rubyのクラス定義</p>
+
+      <pre class="brush: ruby;">
           class Sample
             # クラスの中身、Rubyは＃でコメントアウトができます。
             def sample
@@ -66,15 +67,15 @@
           end
         </pre>
 
-        <p>Rubyのメソッドには二種類あります。</p>
-        <ul>
-          <li>クラスメソッド : クラスが使用できるメソッドです。 わざわざインスタンスを生成しなくても使えるメソッドのことです。</li>
-          <li>インスタンスメソッド : よく目にするメソッドです。 生成したインスタンスからしか呼び出すことができません。</li>
-        </ul>
+      <p>Rubyのメソッドには二種類あります。</p>
+      <ul>
+        <li>クラスメソッド : クラスが使用できるメソッドです。 わざわざインスタンスを生成しなくても使えるメソッドのことです。</li>
+        <li>インスタンスメソッド : よく目にするメソッドです。 生成したインスタンスからしか呼び出すことができません。</li>
+      </ul>
 
-        <p>具体例でみていきましょう。まずはクラスメソッド</p>
+      <p>具体例でみていきましょう。まずはクラスメソッド</p>
 
-        <pre class="brush: ruby;">
+      <pre class="brush: ruby;">
           class Tweet
             def self.get_tweet_count_minute # メソッド定義の前にself.をつけるとクラスメソッドになります。
               return 3
@@ -83,9 +84,9 @@
           puts Tweet.get_tweet_count_minute
         </pre>
 
-        <p>上のようにわざわざインスタンスを生成しなくてもクラスメソッドなら呼び出せます。</p>
+      <p>上のようにわざわざインスタンスを生成しなくてもクラスメソッドなら呼び出せます。</p>
 
-        <pre class="brush: ruby;">
+      <pre class="brush: ruby;">
           class Tweet
             def get_tweet_count_minute
               return 2
@@ -96,29 +97,29 @@
           puts tweet.get_tweet_count_minute
         </pre>
 
-        <p>インスタンスメソッドの場合、このようにインスタンスを生成してから呼び出す必要があります。</p>
+      <p>インスタンスメソッドの場合、このようにインスタンスを生成してから呼び出す必要があります。</p>
 
-        <p>ではこれらを混ぜて使ってみましょう。 下のソースコードを書いて実行してみてください。</p>
+      <p>ではこれらを混ぜて使ってみましょう。 下のソースコードを書いて実行してみてください。</p>
 
-        <pre class="brush: ruby;">
-          class Tweet
-            def self.get_tweet_count_minute
-              return 2
-            end
-
-            def get_tweet
-              return "町田なう"
-            end
+      <pre class="brush: ruby;">
+        class Tweet
+          def self.get_tweet_count_minute
+            return 2
           end
 
-          puts Tweet.get_tweet_count_minute
-          tweet = Tweet.new
-          puts tweet.get_tweet
-        </pre>
+          def get_tweet
+            return "町田なう"
+          end
+        end
 
-        <h3>コンストラクトを使ってみる</h3>
-        <p>Rubyの場合、コンストラクタはinitializeメソッドで定義されます。(コンストラクタとはnewが呼び出されると必ず呼び出されるメソッドのことです。)</p>
-        <pre class="brush: ruby;">
+        puts Tweet.get_tweet_count_minute
+        tweet = Tweet.new
+        puts tweet.get_tweet
+      </pre>
+
+      <h3>コンストラクトを使ってみる</h3>
+      <p>Rubyの場合、コンストラクタはinitializeメソッドで定義されます。(コンストラクタとはnewが呼び出されると必ず呼び出されるメソッドのことです。)</p>
+      <pre class="brush: ruby;">
           class Tweet
             def self.get_tweet_count_minute
               return 2
@@ -136,14 +137,14 @@
           puts tweet.get_tweet
         </pre>
 
-        <h2>クラスに変数を定義する</h2>
-        <p>これもメソッドと同じようにクラス変数とインスタンス変数というものがあります。</p>
+      <h2>クラスに変数を定義する</h2>
+      <p>これもメソッドと同じようにクラス変数とインスタンス変数というものがあります。</p>
 
-        <p>クラス変数の定義は @@変数名 のように変数名に二つ@をつけ、 インスタンス変数は @変数名 のように一つだけ@をつけます。</p>
+      <p>クラス変数の定義は @@変数名 のように変数名に二つ@をつけ、 インスタンス変数は @変数名 のように一つだけ@をつけます。</p>
 
-        <p>これも実際に使ってみましょう。</p>
+      <p>これも実際に使ってみましょう。</p>
 
-        <pre class="brush: ruby;">
+      <pre class="brush: ruby;">
           class Tweet
             @@tweet_count_minute = 3
 
@@ -171,15 +172,16 @@
           puts tweet.get_tweet
         </pre>
 
-        <p>だいぶ雑ですがこれでTweetのモデルのようなものが出来上がりました。</p>
+      <p>だいぶ雑ですがこれでTweetのモデルのようなものが出来上がりました。</p>
 
-        <p>最後にクラスの継承を学びます。 ただ文法だけを学ぶのでどう扱うのかは周りの人に聞いてみてください←すいません・・・</p>
+      <p>最後にクラスの継承を学びます。 ただ文法だけを学ぶのでどう扱うのかは周りの人に聞いてみてください←すいません・・・</p>
 
-        <h2>クラスの継承</h2>
+      <h2>クラスの継承</h2>
 
-        <p>クラスの継承は以下のように < を使って実装していきます。</p>
+      <p>クラスの継承は以下のように
+        < を使って実装していきます。</p>
 
-        <pre class="brush: ruby;">
+          <pre class="brush: ruby;">
           class SampleBase
             @@temp_a = 2
 
@@ -199,37 +201,39 @@
           end
         </pre>
 
-        <p>Rubyの基本文法を一通り学んだところでプログラミングの課題をやっていきましょう。</p>
+          <p>Rubyの基本文法を一通り学んだところでプログラミングの課題をやっていきましょう。</p>
 
-        <h2>プログラミング課題</h2>
+          <h2>プログラミング課題</h2>
 
-        <h3>課題1. </h3>
-        <p>標準入出力を5回受け取った後(入力を受け取るのは gets.chomp でできます 入力された値が返り値として返ってくるメソッドです)その受け取った値を再び表示するプログラムを作成してください。 配列とfor文while文を使うといいですね</p>
-        <h3>課題2. </h3>
-        <p>data = ["dog","cat","rabbit","turtle","monkey","oooka"]<br>
-        という配列を定義し、以下の手順を実行するプログラムを書いてください<br>
-        1. 配列の一番初めの要素を取り出して表示(shiftを使ってください。)<br>
-        2. 配列の一番初めに"takuto"という文字を入れてdataを表示(unshiftがヒント)<br>
-        3. 配列の最後の要素を取り出して表示(popメソッドで行けると思います。)<br>
-        4. 配列の最後に"mon"という文字列を入れ、dataを表示(pushがいいですね)<br></p>
-        <h3>課題3. </h3>
-        <p>コンソール上でのじゃんけんゲームを作りましょう。 グーは1, チョキは2, パーは3 と数値に置き換えてもかまいません。 メソッドだけで完結させるのではなく自分の操作するプレイヤーとコンピュータ(出す手は乱数)のモデル(クラス)を作るとなおいいでしょう。</p>
+          <h3>課題1. </h3>
+          <p>標準入出力を5回受け取った後(入力を受け取るのは gets.chomp でできます 入力された値が返り値として返ってくるメソッドです)その受け取った値を再び表示するプログラムを作成してください。 配列とfor文while文を使うといいですね</p>
+          <h3>課題2. </h3>
+          <p>data = ["dog","cat","rabbit","turtle","monkey","oooka"]
+            <br> という配列を定義し、以下の手順を実行するプログラムを書いてください
+            <br> 1. 配列の一番初めの要素を取り出して表示(shiftを使ってください。)
+            <br> 2. 配列の一番初めに"takuto"という文字を入れてdataを表示(unshiftがヒント)
+            <br> 3. 配列の最後の要素を取り出して表示(popメソッドで行けると思います。)
+            <br> 4. 配列の最後に"mon"という文字列を入れ、dataを表示(pushがいいですね)
+            <br>
+          </p>
+          <h3>課題3. </h3>
+          <p>コンソール上でのじゃんけんゲームを作りましょう。 グーは1, チョキは2, パーは3 と数値に置き換えてもかまいません。 メソッドだけで完結させるのではなく自分の操作するプレイヤーとコンピュータ(出す手は乱数)のモデル(クラス)を作るとなおいいでしょう。</p>
 
-      </article>
+    </article>
 
-      <div class="right-content">
-        <div class="btn" data-url="../Lesson0/index.html">0回目(環境構築)</div>
-        <div class="btn" data-url="../Lesson1/index.html">1回目(HTML&CSS, javascriptの基本)</div>
-        <div class="btn" data-url="../Lesson2/index.html">2回目(Rubyの基本文法, Railsの基本)</div>
-        <div class="btn" data-url="../Lesson3/index.html">3回目(WEBサービス作成 その1)</div>
-        <div class="btn" data-url="../Lesson4/index.html">4回目(WEBサービス作成 その2)</div>
-        <div class="btn" data-url="../Lesson5/index.html">5回目</div>
+    <div class="right-content">
+      <div class="btn" data-url="../Lesson0/index.html">0回目(環境構築)</div>
+      <div class="btn" data-url="../Lesson1/index.html">1回目(HTML&CSS, javascriptの基本)</div>
+      <div class="btn" data-url="../Lesson2/index.html">2回目(Rubyの基本文法, Railsの基本)</div>
+      <div class="btn" data-url="../Lesson3/index.html">3回目(WEBサービス作成 その1)</div>
+      <div class="btn" data-url="../Lesson4/index.html">4回目(WEBサービス作成 その2)</div>
+      <div class="btn" data-url="../Lesson5/index.html">5回目</div>
 
-      </div>
     </div>
+  </div>
 
-    <footer>
-    </footer>
-  </body>
+  <footer>
+  </footer>
+</body>
 
 </html>

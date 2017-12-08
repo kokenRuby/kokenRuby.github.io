@@ -1,67 +1,68 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="../css/style.css">
-    <title>Koken Ruby on Rails</title>
-    <script src="../js/jquery-3.1.1.min.js"></script>
 
-    <script type="text/javascript" src="../syntaxHighlighter/scripts/shCore.js"></script>
-    <script type="text/javascript" src="../syntaxHighlighter/scripts/shBrushJScript.js"></script>
-    <script type="text/javascript" src="../syntaxHighlighter/scripts/shBrushCss.js"></script>
-    <script type="text/javascript" src="../syntaxHighlighter/scripts/shBrushXml.js"></script>
-    <link type="text/css" rel="stylesheet" href="../syntaxHighlighter/styles/shCoreDefault.css"/>
-    <link type="text/css" rel="stylesheet" href="../syntaxHighlighter/styles/shThemeFadeToGrey.css"/>
-    <script type="text/javascript">
-      SyntaxHighlighter.all();
-    </script>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" href="../css/style.css">
+  <title>Koken Ruby on Rails</title>
+  <script src="../js/jquery-3.1.1.min.js"></script>
 
-    <script src="../js/application.js"></script>
-  </head>
-  <body>
+  <script type="text/javascript" src="../syntaxHighlighter/scripts/shCore.js"></script>
+  <script type="text/javascript" src="../syntaxHighlighter/scripts/shBrushJScript.js"></script>
+  <script type="text/javascript" src="../syntaxHighlighter/scripts/shBrushCss.js"></script>
+  <script type="text/javascript" src="../syntaxHighlighter/scripts/shBrushXml.js"></script>
+  <link type="text/css" rel="stylesheet" href="../syntaxHighlighter/styles/shCoreDefault.css" />
+  <link type="text/css" rel="stylesheet" href="../syntaxHighlighter/styles/shThemeFadeToGrey.css" />
+  <script type="text/javascript">
+    SyntaxHighlighter.all();
+  </script>
 
-    <div class="navbar"></div>
-    <header></header>
+  <script src="../js/application.js"></script>
+</head>
 
-    <div class="contents clearfix">
+<body>
 
-      <article class="left-content">
+  <div class="navbar"></div>
+  <header></header>
 
-<h3>すいません。 今回javascriptの内容はあまり濃くないです・・・ </h3>
+  <div class="contents clearfix">
 
-<h1>第一回Ruby on Rails講習</h1>
+    <article class="left-content">
 
-<p>今回はHTML&CSS, javascriptの基本をやるのでvagrant, VirtualBoxは使いません。 Sublime Textを使っていきます。</p>
+      <h1>第一回Ruby on Rails講習 html</h1>
 
-<p>それぞれの概要について</p>
+      <p>今回はHTML&CSS, javascriptの基本をやるのでvagrant, VirtualBoxは使いません。 Sublime Textを使っていきます。</p>
 
-<ol>
-  <li>HTML ・・・ HyperTextMarkupLanguageの略。WEBサイトの見た目(主に構造)を作るためのマークアップ言語。おそらくみなさん授業でやったと思うのでこれはそんなに学習に困らないと思います。</li>
-  <li>CSS ・・・ Cascading Style Sheetsの略。 HTMLで作った構造に対して背景色や文字の大きさなどの詳細(プロパティと言います。 これからこの言葉を使っていくので覚えましょう)を決めていくための言語。</li>
-  <li>javascript ・・・ プログラミング言語の一つ。なおJavaとは全く違う言語なので要注意！ ChromeやFirefoxなどのWEBブラウザで実行できるのですごい便利。 
-  実はjavascriptさえ極めれば各種フレームワークを使うことによって、iOS&Androidアプリ開発(ただし速度はお察し)や第二回以降学んでいくRubyが担う処理(サーバサイドの記述)も出来ちゃったりする。</li>
-</ol>
+      <p>それぞれの概要について</p>
 
-<p>今回の講習では以上の事柄をやっていきます。 ただし本講習でやったことでHTMLやCSSをマスターできるわけではないので基礎を学んだあとは自分でWEBサイトを作って腕を磨いていきましょう</p>
+      <ol>
+        <li>HTML ・・・ HyperTextMarkupLanguageの略。WEBサイトの見た目(主に構造)を作るためのマークアップ言語。おそらくみなさん授業でやったと思うのでこれはそんなに学習に困らないと思います。</li>
+        <li>CSS ・・・ Cascading Style Sheetsの略。 HTMLで作った構造に対して背景色や文字の大きさなどの詳細(プロパティと言います。 これからこの言葉を使っていくので覚えましょう)を決めていくための言語。</li>
+        <li>javascript ・・・ プログラミング言語の一つ。なおJavaとは全く違う言語なので要注意！ ChromeやFirefoxなどのWEBブラウザで実行できるのですごい便利。 実はjavascriptさえ極めれば各種フレームワークを使うことによって、iOS&Androidアプリ開発(ただし速度はお察し)や第二回以降学んでいくRubyが担う処理(サーバサイドの記述)も出来ちゃったりする。
+        </li>
+      </ol>
 
-<h2>HTML~導入</h2>
+      <p>今回の講習では以上の事柄をやっていきます。 ただし本講習でやったことでHTMLやCSSをマスターできるわけではないので基礎を学んだあとは自分でWEBサイトを作って腕を磨いていきましょう</p>
 
-<p>下の画像はRuby on Rails講習のWEBサイトの画像です。</p>
+      <h2>HTML~導入</h2>
 
-<img src="image/1.png" />
+      <p>下の画像はRuby on Rails講習のWEBサイトの画像です。</p>
 
-<p>このようにWEBサイトは箱(これを「要素」と呼びます。)と文字から構成されており、HTMLで要素と文字を、CSSで要素の背景色等のプロパティを設定していきます。</p>
+      <img src="image/1.png" />
 
-<p>ざっくり理解したところで実際にHTMLとCSSを使って適当なページを作ってみましょう</p>
+      <p>このようにWEBサイトは箱(これを「要素」と呼びます。)と文字から構成されており、HTMLで要素と文字を、CSSで要素の背景色等のプロパティを設定していきます。</p>
 
-<p>Sublime Textを起動した後、「Ctrl-o」を押すと以下のようなファイル選択画面が開きます。</p>
+      <p>ざっくり理解したところで実際にHTMLとCSSを使って適当なページを作ってみましょう</p>
 
-<img src="image/2.png" >
+      <p>Sublime Textを起動した後、「Ctrl-o」を押すと以下のようなファイル選択画面が開きます。</p>
 
-<p>まずHTMLはC言語でいう#include &lt;stdio.h&gt; とか int main(void)的な感じのいわゆるおまじないが存在します。<br>それが以下のコードです。</p>
+      <img src="image/2.png">
 
-<pre class="brush: xml">
+      <p>まずHTMLはC言語でいう#include &lt;stdio.h&gt; とか int main(void)的な感じのいわゆるおまじないが存在します。
+        <br>それが以下のコードです。</p>
+
+      <pre class="brush: xml">
 &lt;!DOCTYPE html&gt;
 &lt;html&gt;
   &lt;head&gt;
@@ -74,20 +75,22 @@
 &lt;/html&gt;
 </pre>
 
-<ul>
-  <li>&lt;!DOCTYPE html&gt; ・・・ これはHTMLの文法ですよ、という宣言 しないと場合によっては見た目が崩れたりするので必ず宣言しましょう。</li>
-  <li>&lt;meta charset=&quot;UTF-8&quot;&gt;・・・ meta要素は文書に関する情報を指定するときに使う要素です。 今回はこのファイルの文字コードはUTF-8ですよ、という宣言をしています。 <br>
-  これも宣言しないと文字化けしたりするので注意</li>
-  <li>&lt;!-- コメントアウト --&gt; ・・・ CやJavaなどのコメントアウトとだいぶ違うので注意！ ただしこれはHTMLの場合なのでCSSは/* */でコメントアウトができます。</li>
-  <li>htmlは対応する要素のタグ( &lt;html&gt; や &lt;title&gt; など)で表示したい内容を挟んで文書を作っていきます。 例えば大きい文字を表示したいときは&lt;h1&gt;タグ, 一つの段落として表示したいときは&lt;p&gt;タグで挟むなどです。</li>
-</ul>
+      <ul>
+        <li>&lt;!DOCTYPE html&gt; ・・・ これはHTMLの文法ですよ、という宣言 しないと場合によっては見た目が崩れたりするので必ず宣言しましょう。</li>
+        <li>&lt;meta charset=&quot;UTF-8&quot;&gt;・・・ meta要素は文書に関する情報を指定するときに使う要素です。 今回はこのファイルの文字コードはUTF-8ですよ、という宣言をしています。
+          <br> これも宣言しないと文字化けしたりするので注意
+        </li>
+        <li>&lt;!-- コメントアウト --&gt; ・・・ CやJavaなどのコメントアウトとだいぶ違うので注意！ ただしこれはHTMLの場合なのでCSSは/* */でコメントアウトができます。</li>
+        <li>htmlは対応する要素のタグ( &lt;html&gt; や &lt;title&gt; など)で表示したい内容を挟んで文書を作っていきます。 例えば大きい文字を表示したいときは&lt;h1&gt;タグ, 一つの段落として表示したいときは&lt;p&gt;タグで挟むなどです。</li>
+      </ul>
 
-<p>それではITの定番Hello World行きましょう。<br>Sublime textを立ち上げ
-今回は大したことはやらないので後ですぐ消せるように「デスクトップ」ディレクトリに「sample.html」というファイルを作りましょう。</p>
+      <p>それではITの定番Hello World行きましょう。
+        <br>Sublime textを立ち上げ 今回は大したことはやらないので後ですぐ消せるように「デスクトップ」ディレクトリに「sample.html」というファイルを作りましょう。
+      </p>
 
-<p>開いたら以下のコードを打ち込んでください。</p>
+      <p>開いたら以下のコードを打ち込んでください。</p>
 
-<pre class="brush: xml">
+      <pre class="brush: xml">
   &lt;!DOCTYPE html&gt;
   &lt;html&gt;
     &lt;head&gt;
@@ -107,61 +110,62 @@
 </pre>
 
 
-<p>打ち込んだらsample.htmlをChromeで開いてみましょう。 おそらく以下のようになってると思います。</p>
+      <p>打ち込んだらsample.htmlをChromeで開いてみましょう。 おそらく以下のようになってると思います。</p>
 
-<img src="image/3.png">
+      <img src="image/3.png">
 
-<p>上のコードのタグの説明です。</p>
-<ul>
-  <li>&lt;html&gt;: html文書の始まりと終わりを表すタグ</li>
-  <li>&lt;head&gt; : HTML文書の情報を記述するもの。 ここに書かれたコードをブラウザに表示されません。</li>
-  <li>&lt;body&gt; : HTMLを記述していきます。 ここに記述されたものがブラウザに表示されます。</li>
-  <li>&lt;h1&gt;, &lt;h2&gt;, &lt;h3&gt;, &lt;h4&gt;, &lt;h5&gt;, &lt;h6&gt; : 文字を表示するタグです。 1, 2, 3, ...の順に文字の大きさが小さくなっていきます。</li>
-  <li>&lt;p&gt; : 段落を表すタグ。 htmlはタグを使わずそのまま文書を打つと改行がされないのですが、これを使うと&lt;/p&gt;タグで改行されます。 さらに上下左右にちょっと余白を作ってくれるのですこしキレイにもなります。<br>一つの段落を定義したいときに使うといいでしょう。</li>
-</ul>
+      <p>上のコードのタグの説明です。</p>
+      <ul>
+        <li>&lt;html&gt;: html文書の始まりと終わりを表すタグ</li>
+        <li>&lt;head&gt; : HTML文書の情報を記述するもの。 ここに書かれたコードをブラウザに表示されません。</li>
+        <li>&lt;body&gt; : HTMLを記述していきます。 ここに記述されたものがブラウザに表示されます。</li>
+        <li>&lt;h1&gt;, &lt;h2&gt;, &lt;h3&gt;, &lt;h4&gt;, &lt;h5&gt;, &lt;h6&gt; : 文字を表示するタグです。 1, 2, 3, ...の順に文字の大きさが小さくなっていきます。</li>
+        <li>&lt;p&gt; : 段落を表すタグ。 htmlはタグを使わずそのまま文書を打つと改行がされないのですが、これを使うと&lt;/p&gt;タグで改行されます。 さらに上下左右にちょっと余白を作ってくれるのですこしキレイにもなります。
+          <br>一つの段落を定義したいときに使うといいでしょう。</li>
+      </ul>
 
-<h6>他にも</h6>
+      <h6>他にも</h6>
 
-<ul>
-  <li>&lt;a&gt; : 他のページのリンクを表すタグ</li>
-  <pre class="brush: xml">
+      <ul>
+        <li>&lt;a&gt; : 他のページのリンクを表すタグ</li>
+        <pre class="brush: xml">
     <a href="http://koken.com">Koken Link</a>
   </pre>
-  <li>&lt;img&gt; : 画像を表すタグ altにはsrcの画像が読み込めなかった場合に代わりに表示する画像を入れる</li>
-  <pre class="brush: xml">
+        <li>&lt;img&gt; : 画像を表すタグ altにはsrcの画像が読み込めなかった場合に代わりに表示する画像を入れる</li>
+        <pre class="brush: xml">
     <img src="image/sample.png" alt="image/error.png">
   </pre>
-  <li>&lt;link&gt; : CSSのファイルを読み込むタグ</li>
-  <pre class="brush: xml">
+        <li>&lt;link&gt; : CSSのファイルを読み込むタグ</li>
+        <pre class="brush: xml">
     <link type="text/css" rel="stylesheet" href="sample.css">
   </pre>
-  <li>&lt;script&gt; : javascriptのファイルを読み込むタグ</li>
-  <pre class="brush: xml">
+        <li>&lt;script&gt; : javascriptのファイルを読み込むタグ</li>
+        <pre class="brush: xml">
     <script src="sample.js" type="text/javascript"></script>
   </pre>
-</ul>
+      </ul>
 
-<p>などがあります。 タグの&lt;a&gt;の後のsrc=""やaltなどを属性といいます。 覚えておきましょう。
-またこれらのタグも非常に重要なのでぜひ覚えていきましょう。</p>
+      <p>などがあります。 タグの&lt;a&gt;の後のsrc=""やaltなどを属性といいます。 覚えておきましょう。 またこれらのタグも非常に重要なのでぜひ覚えていきましょう。
+      </p>
 
-<h2>HTML,CSSのコツ</h2>
+      <h2>HTML,CSSのコツ</h2>
 
-<p>HTMLが何なのか、ということをざっくり理解したところで次はどうやってHTML文書を作っていくかということをやっていきます。</p>
+      <p>HTMLが何なのか、ということをざっくり理解したところで次はどうやってHTML文書を作っていくかということをやっていきます。</p>
 
-<p>まずみなさんは以下の3つのポイントを覚えて下さい。</p>
+      <p>まずみなさんは以下の3つのポイントを覚えて下さい。</p>
 
-<ol>
-  <li>HTMLは左上に重力がある積み木のようなものである。</li>
-  <li>積み木はそれぞれCSSのプロパティ設定によって色が変わったり縦横の長さが変わったりする。</li>
-  <li>積み木は入れ子構造である。</li>
-</ol>
+      <ol>
+        <li>HTMLは左上に重力がある積み木のようなものである。</li>
+        <li>積み木はそれぞれCSSのプロパティ設定によって色が変わったり縦横の長さが変わったりする。</li>
+        <li>積み木は入れ子構造である。</li>
+      </ol>
 
-<p>それではこれらを具体例を交えて説明します。</p>
+      <p>それではこれらを具体例を交えて説明します。</p>
 
-<p>まずは以下のコードを見てください。 class属性はその要素に対してクラス名を与えるものです。 よくわからない場合はある要素に名前を付ける属性である、と覚えておきましょう。</p>
+      <p>まずは以下のコードを見てください。 class属性はその要素に対してクラス名を与えるものです。 よくわからない場合はある要素に名前を付ける属性である、と覚えておきましょう。</p>
 
-<h6>sample.html</h6>
-<pre class="brush: xml">
+      <h6>sample.html</h6>
+      <pre class="brush: xml">
   &lt;!DOCTYPE html&gt;
   &lt;html&gt;
     &lt;head&gt;
@@ -177,11 +181,11 @@
   &lt;/html&gt;
 </pre>
 
-<p>このまま表示しても装飾をしていないため、ブラウザには何も表示されません。 今は「box-1 box-2 box-3クラスの要素の実体は存在するが目に見えない状態」です。</p>
+      <p>このまま表示しても装飾をしていないため、ブラウザには何も表示されません。 今は「box-1 box-2 box-3クラスの要素の実体は存在するが目に見えない状態」です。</p>
 
-<p>そこでCSSの出番です。 まずCSSの文法について少し触れていきます。</p>
+      <p>そこでCSSの出番です。 まずCSSの文法について少し触れていきます。</p>
 
-<pre class="brush: css">
+      <pre class="brush: css">
   セレクタ {
     width: 40px;
     height: 40px;
@@ -192,11 +196,11 @@
   }
 </pre>
 
-<p>「セレクタ」の部分には場合によって違うものが入ります。具体例で示していくと</p>
+      <p>「セレクタ」の部分には場合によって違うものが入ります。具体例で示していくと</p>
 
-<ul>
-  <li>標準で用意されているタグの場合(h1, h2, p など)</li>
-  <pre class="brush: css">
+      <ul>
+        <li>標準で用意されているタグの場合(h1, h2, p など)</li>
+        <pre class="brush: css">
     h1 { /* このように指定する要素に何もつけずそのまま打ち込む */
       font-size: 20px;
       font-family: sans-serif;
@@ -205,24 +209,25 @@
       height: 10px;
     }
   </pre>
-  <li>クラス名の場合</li>
-  <pre class="brush: css">
+        <li>クラス名の場合</li>
+        <pre class="brush: css">
     .box-1 { /* 指定するクラス名の前に.(ドット)をつける */
       width: 100px;
     }
   </pre>
-  <li>id名の場合(idとはclassと同じように設定できる属性のことです。 CSSの適用優先順位がclassより高く、html文書の中で一度のみ使えるものであると解釈してください。)</li>
-  <pre class="brush: css">
+        <li>id名の場合(idとはclassと同じように設定できる属性のことです。 CSSの適用優先順位がclassより高く、html文書の中で一度のみ使えるものであると解釈してください。)</li>
+        <pre class="brush: css">
     #box-id { /* 指定するid名の前に#をつける */
       width: 100px;
     }
   </pre>
-</ul>
+      </ul>
 
-<p>文法はざっくりやったので必要だったりわからないプロパティが出てきたら適宜調べていきましょう。<br>
-以下のようにCSSでそれぞれの要素にプロパティを設定していけば実体が目に見えるようになります。</p>
+      <p>文法はざっくりやったので必要だったりわからないプロパティが出てきたら適宜調べていきましょう。
+        <br> 以下のようにCSSでそれぞれの要素にプロパティを設定していけば実体が目に見えるようになります。
+      </p>
 
-<pre class="brush: css">
+      <pre class="brush: css">
   .box-1 {
     width: 100px;
     height: 100px;
@@ -245,17 +250,17 @@
   }
 </pre>
 
-<p>このCSSを読み込んだ状態でsample.htmlファイルをブラウザで開くと以下のような状態になっていると思います。</p>
+      <p>このCSSを読み込んだ状態でsample.htmlファイルをブラウザで開くと以下のような状態になっていると思います。</p>
 
-<img src="image/4.png">
+      <img src="image/4.png">
 
-<p>画像からもわかる通り左上に重力がかかっているようにbox-1, box-2, box-3が積まれているのがわかります。</p>
+      <p>画像からもわかる通り左上に重力がかかっているようにbox-1, box-2, box-3が積まれているのがわかります。</p>
 
-<p>これらの要素はブロック要素と呼ばれます。 重要な単語なので覚えておきましょう。(もう少し詳しい解説は後ほど)</p>
+      <p>これらの要素はブロック要素と呼ばれます。 重要な単語なので覚えておきましょう。(もう少し詳しい解説は後ほど)</p>
 
-<p>また下の画像のように要素の中に文字を入れると、文字は箱の中いっぱいに広がります。</p>
+      <p>また下の画像のように要素の中に文字を入れると、文字は箱の中いっぱいに広がります。</p>
 
-<pre class="brush: xml">
+      <pre class="brush: xml">
   &lt;!DOCTYPE html&gt;
   &lt;html&gt;
     &lt;head&gt;
@@ -271,11 +276,11 @@
   &lt;/html&gt;
 </pre>
 
-<img src="image/5.png">
+      <img src="image/5.png">
 
-<p>また要素の中に要素を入れて入れ子構造にすることもできます。 外側の要素を「親要素」、内側の要素を「子要素」と呼びます。 これは覚えておきましょう。</p>
+      <p>また要素の中に要素を入れて入れ子構造にすることもできます。 外側の要素を「親要素」、内側の要素を「子要素」と呼びます。 これは覚えておきましょう。</p>
 
-<pre class="brush: xml">
+      <pre class="brush: xml">
   &lt;!DOCTYPE html&gt;
   &lt;html&gt;
     &lt;head&gt;
@@ -292,25 +297,27 @@
   &lt;/html&gt;
 </pre>
 
-<img src="image/6.png">
+      <img src="image/6.png">
 
-<p>私たちがよく目にするWEBサイトは、先ほど紹介した</p>
+      <p>私たちがよく目にするWEBサイトは、先ほど紹介した</p>
 
-<ol>
-  <li>HTMLは左上に重力がある積み木のようなものである。</li>
-  <li>積み木はそれぞれCSSのプロパティ設定によって色が変わったり縦横の長さが変わったりする。</li>
-  <li>積み木は入れ子構造である。</li>
-</ol>
+      <ol>
+        <li>HTMLは左上に重力がある積み木のようなものである。</li>
+        <li>積み木はそれぞれCSSのプロパティ設定によって色が変わったり縦横の長さが変わったりする。</li>
+        <li>積み木は入れ子構造である。</li>
+      </ol>
 
-<p>に沿って作られています。 以下のkoken HomePageもその規則に従って作られています。</p>
+      <p>に沿って作られています。 以下のkoken HomePageもその規則に従って作られています。</p>
 
-<p>次はブロック要素とインライン要素というものについてやっていきます。</p>
+      <p>次はブロック要素とインライン要素というものについてやっていきます。</p>
 
-<h2>ブロック要素、インライン要素</h2>
+      <h2>ブロック要素、インライン要素</h2>
 
-<ul>
-  <li>ブロック要素 ・・・ 要素を「一つのブロック」として扱います。基本的には先ほどやったようにCSSで高さと横幅を設定していきます。 CSSで特殊な設定をしない限り、要素の上下に改行が入ります。ブロック要素の代表的なものとして&lt;div&gt;があります。 箱と覚えるといいでしょう。</li>
-  <pre class="brush: xml">
+      <ul>
+        <li>ブロック要素 ・・・ 要素を「一つのブロック」として扱います。基本的には先ほどやったようにCSSで高さと横幅を設定していきます。 CSSで特殊な設定をしない限り、要素の上下に改行が入ります。ブロック要素の代表的なものとして&lt;div&gt;があります。
+          箱と覚えるといいでしょう。
+        </li>
+        <pre class="brush: xml">
     &lt;!DOCTYPE html&gt;
     &lt;html&gt;
       &lt;head&gt;
@@ -323,10 +330,10 @@
       &lt;/body&gt;
     &lt;/html&gt;
   </pre>
-  <img src="image/7.png">
+        <img src="image/7.png">
 
-  <li>インライン要素 ・・・ テキストを装飾するための要素です。 あるテキストの一部分の色等を変えたい場合につかいます。 あくまで文字の一部の範囲指定なので上下の改行はなくそのまま横に並びます。 代表的なものとして&lt;span&gt;があります。</li>
-  <pre class="brush: xml">
+        <li>インライン要素 ・・・ テキストを装飾するための要素です。 あるテキストの一部分の色等を変えたい場合につかいます。 あくまで文字の一部の範囲指定なので上下の改行はなくそのまま横に並びます。 代表的なものとして&lt;span&gt;があります。</li>
+        <pre class="brush: xml">
     &lt;!DOCTYPE html&gt;
     &lt;html&gt;
       &lt;head&gt;
@@ -339,21 +346,21 @@
       &lt;/body&gt;
     &lt;/html&gt;
   </pre>
-  <img src="image/8.png">
-</ul>
+        <img src="image/8.png">
+      </ul>
 
-<h2>実際にWEBサイトをHTML&CSSで作ってみよう</h2>
+      <h2>実際にWEBサイトをHTML&CSSで作ってみよう</h2>
 
-<p>実際にWEBページを作っていきましょう。 デスクトップにディレクトリを作りましょう。 名前は「Homepage」とします。</p>
+      <p>実際にWEBページを作っていきましょう。 デスクトップにディレクトリを作りましょう。 名前は「Homepage」とします。</p>
 
-<p>Sublime Textで「Ctrl-o」を押しHomepage内にindex.htmlとstyle.cssを作ります。</p>
+      <p>Sublime Textで「Ctrl-o」を押しHomepage内にindex.htmlとstyle.cssを作ります。</p>
 
-<img src="image/2.png">
+      <img src="image/2.png">
 
-<p>まずはHTMLのお約束を書いていきましょう。</p>
+      <p>まずはHTMLのお約束を書いていきましょう。</p>
 
-<h4>index.html</h4>
-<pre class="brush: xml">
+      <h4>index.html</h4>
+      <pre class="brush: xml">
   &lt;!DOCTYPE html&gt;
   &lt;html&gt;
     &lt;head&gt;
@@ -366,8 +373,8 @@
   &lt;/html&gt;
 </pre>
 
-<h4>style.css</h4>
-<pre class="brush: css">
+      <h4>style.css</h4>
+      <pre class="brush: css">
   body {
     background-color: #f0f0f0; /* RGB code で表せる */
     font-size: 14px;
@@ -381,33 +388,35 @@
   }
 </pre>
 
-<p>今回CSSでh1, h2, pなどの標準で用意されている要素に対してプロパティを設定しています。 これはブラウザによって独自のCSS設定が存在するため、ほかのブラウザで開くと予期しない見た目になってしまうのを防ぐためにそのデフォルトのCSSを上書きするCSSを書いているのです。 これを「リセットCSS」と呼びます。</p>
+      <p>今回CSSでh1, h2, pなどの標準で用意されている要素に対してプロパティを設定しています。 これはブラウザによって独自のCSS設定が存在するため、ほかのブラウザで開くと予期しない見た目になってしまうのを防ぐためにそのデフォルトのCSSを上書きするCSSを書いているのです。
+        これを「リセットCSS」と呼びます。
+      </p>
 
-<h2>header, footer</h2>
+      <h2>header, footer</h2>
 
-<ul>
-  <li>header ・・・ 上に位置するもの(ヘッダー)を表す要素として使える。ブロック要素</li>
-  <li>footer ・・・ 下に位置するもの(フッター)を表す要素として使える。ブロック要素</li>
-</ul>
+      <ul>
+        <li>header ・・・ 上に位置するもの(ヘッダー)を表す要素として使える。ブロック要素</li>
+        <li>footer ・・・ 下に位置するもの(フッター)を表す要素として使える。ブロック要素</li>
+      </ul>
 
-<p>header, footerをindex.htmlに追加しましょう。</p>
+      <p>header, footerをindex.htmlに追加しましょう。</p>
 
-<pre class="brush: xml; first-line: 8;">
+      <pre class="brush: xml; first-line: 8;">
   &lt;body&gt;
     <header></header>
     <footer></footer>
   &lt;/body&gt;
 </pre>
 
-<p>続いてWEBサイトのコンテンツを作っていきましょう。 コンテンツに限らず一つの塊となっている情報を定義したいときはdivタグを使います。</p>
+      <p>続いてWEBサイトのコンテンツを作っていきましょう。 コンテンツに限らず一つの塊となっている情報を定義したいときはdivタグを使います。</p>
 
-<h5>※なぜdivタグを使うのか・・・？</h5>
+      <h5>※なぜdivタグを使うのか・・・？</h5>
 
-<h6>divは「特定の意味がない」「ブロック要素」なのでプロパティをうまく設定すれば汎用的に様々な用途で使うことができるからです。spanだとinline要素であり、要素を一つの情報の塊として扱うのが無理(無理やりやればできないこともないけど・・・)なのでこれからはどんどんdivを使っていきましょう。</h6>
+      <h6>divは「特定の意味がない」「ブロック要素」なのでプロパティをうまく設定すれば汎用的に様々な用途で使うことができるからです。spanだとinline要素であり、要素を一つの情報の塊として扱うのが無理(無理やりやればできないこともないけど・・・)なのでこれからはどんどんdivを使っていきましょう。</h6>
 
-<p>divタグを使いコンテンツの外側の枠の要素を定義しましょう。</p>
+      <p>divタグを使いコンテンツの外側の枠の要素を定義しましょう。</p>
 
-<pre class="brush: xml; first-line: 8;">
+      <pre class="brush: xml; first-line: 8;">
   <body>
     <header></header>
 
@@ -417,13 +426,13 @@
   </body>
 </pre>
 
-<p>あとでCSSを設定していくのでcontentsというclassをつけます。</p>
+      <p>あとでCSSを設定していくのでcontentsというclassをつけます。</p>
 
-<p>次に今のままだとブラウザ上で何も見えないのでCSSでブロック要素に対してプロパティを設定していきます。</p>
+      <p>次に今のままだとブラウザ上で何も見えないのでCSSでブロック要素に対してプロパティを設定していきます。</p>
 
-<h4>style.css</h4>
+      <h4>style.css</h4>
 
-<pre class="brush: css; first-line: 13;">
+      <pre class="brush: css; first-line: 13;">
   header {
     height: 100px;
     background-color: #a0a0a0;
@@ -441,13 +450,13 @@
   }
 </pre>
 
-<img src="image/9.png">
+      <img src="image/9.png">
 
-<p>contentsが左に寄ってしまっていますがこれも後で真ん中に来るようにします。</p>
+      <p>contentsが左に寄ってしまっていますがこれも後で真ん中に来るようにします。</p>
 
-<p>contents, headingの中の子要素も作っていきましょう。</p>
+      <p>contents, headingの中の子要素も作っていきましょう。</p>
 
-<pre class="brush: xml; first-line: 8;">
+      <pre class="brush: xml; first-line: 8;">
   <body>
     <header>
       <div class="heading"></div>
@@ -464,10 +473,10 @@
   </body>
 </pre>
 
-<p>今追加した子要素のプロパティも設定していきましょう。</p>
+      <p>今追加した子要素のプロパティも設定していきましょう。</p>
 
-<h4>style.css</h4>
-<pre class="brush: css; first-line: 13;">
+      <h4>style.css</h4>
+      <pre class="brush: css; first-line: 13;">
   header {
     background-color: #a0a0a0;
   }
@@ -503,24 +512,24 @@
   }
 </pre>
 
-<img src="image/10.png">
+      <img src="image/10.png">
 
-<p>上の画像から見てわかる通りブロック要素は幅も大きさも指定がなければ子要素の分だけ広がります。
-<br> 今回は子要素の分だけheader, contentsに広がってほしかったのでheightを消しました。</p>
+      <p>上の画像から見てわかる通りブロック要素は幅も大きさも指定がなければ子要素の分だけ広がります。
+        <br> 今回は子要素の分だけheader, contentsに広がってほしかったのでheightを消しました。</p>
 
-<p>この画像を見てもわかるのですがleft-content, right-contentが横並びになっていません。 <br>
-望ましい結果としてはcontentの中でleft-contentが左側に、right-contentが右側になっている状態です。 </p>
+      <p>この画像を見てもわかるのですがleft-content, right-contentが横並びになっていません。
+        <br> 望ましい結果としてはcontentの中でleft-contentが左側に、right-contentが右側になっている状態です。 </p>
 
-<p>ではこれからそれをやっていきましょう。</p>
+      <p>ではこれからそれをやっていきましょう。</p>
 
-<h2>float プロパティ</h2>
+      <h2>float プロパティ</h2>
 
-<p>floatプロパティとは指定された要素を左、または右に重力をかけるように寄せて配置するときに使います。 
-<br>それではfloatを使って、right-contentをleft-contentの右側に配置するように設定しましょう。</p>
+      <p>floatプロパティとは指定された要素を左、または右に重力をかけるように寄せて配置するときに使います。
+        <br>それではfloatを使って、right-contentをleft-contentの右側に配置するように設定しましょう。</p>
 
-<h4>style.css</h4>
+      <h4>style.css</h4>
 
-<pre class="brush: css; first-line: 35;">
+      <pre class="brush: css; first-line: 35;">
   .left-content {
     height: 400px;
     width: 640px;
@@ -536,18 +545,18 @@
   }
 </pre>
 
-<img src="image/11.png">
+      <img src="image/11.png">
 
-<p>left-contentとright-contentを横並びさせることに成功！！・・・とおもいきや今度はfooterがなくなってしまいました。</p>
+      <p>left-contentとright-contentを横並びさせることに成功！！・・・とおもいきや今度はfooterがなくなってしまいました。</p>
 
-<p>これはcontentsが消えてfooterが上に上がってleft-content, right-contentの裏に隠れてしまっているのですね。</p>
+      <p>これはcontentsが消えてfooterが上に上がってleft-content, right-contentの裏に隠れてしまっているのですね。</p>
 
-<p>これに関して理解するためにはfloatがどんなものなのかを理解しなければなりません。</p>
+      <p>これに関して理解するためにはfloatがどんなものなのかを理解しなければなりません。</p>
 
-<p>例えば以下のコードをブラウザで開いたとしましょう</p>
+      <p>例えば以下のコードをブラウザで開いたとしましょう</p>
 
-<h4>index.html</h4>
-<pre class="brush: xml">
+      <h4>index.html</h4>
+      <pre class="brush: xml">
   &lt;!DOCTYPE html&gt;
   &lt;html&gt;
     &lt;head&gt;
@@ -565,8 +574,8 @@
   &lt;/html&gt;
 </pre>
 
-<h4>style.css</h4>
-<pre class="brush: css;">
+      <h4>style.css</h4>
+      <pre class="brush: css;">
   .super-box {
     background-color: yellow;
     width: 80px;
@@ -592,30 +601,30 @@
   }
 </pre>
 
-<img src="image/12.png" class="small_img">
+      <img src="image/12.png" class="small_img">
 
-<p>すべてブロック要素ですから上のようになるのは容易に想像できると思います。</p>
+      <p>すべてブロック要素ですから上のようになるのは容易に想像できると思います。</p>
 
-<p>ではson-box3クラスにfloat: left;というプロパティを設定するとどうなるでしょう。 下のようになります。</p>
+      <p>ではson-box3クラスにfloat: left;というプロパティを設定するとどうなるでしょう。 下のようになります。</p>
 
-<img src="image/13.png" class="small_img">
+      <img src="image/13.png" class="small_img">
 
-<p>黄色の箱super-boxは親要素で、heightを設定していないので
-子要素son-box1, son-box2, son-box3の分だけ高さが増えるはずなのですがson-box3だけ仲間外れにされているような感じになっちゃってます。</p>
+      <p>黄色の箱super-boxは親要素で、heightを設定していないので 子要素son-box1, son-box2, son-box3の分だけ高さが増えるはずなのですがson-box3だけ仲間外れにされているような感じになっちゃってます。</p>
 
-<p>これはfloatプロパティの特性なのです。 float: left  rightに限らずfloatが設定された要素は文字通りあたかも浮いたような
-感じになってしまいほかの要素から認識されなくなってしまうのです。</p>
+      <p>これはfloatプロパティの特性なのです。 float: left rightに限らずfloatが設定された要素は文字通りあたかも浮いたような 感じになってしまいほかの要素から認識されなくなってしまうのです。
+      </p>
 
-<p>確かにこういうのが必要な場面があるのかもしれないですが少なくとも今はこの性質は厄介ですね。 <br>
-ですがこの問題を解決する「clearfix」という手法があるのです。</p>
+      <p>確かにこういうのが必要な場面があるのかもしれないですが少なくとも今はこの性質は厄介ですね。
+        <br> ですがこの問題を解決する「clearfix」という手法があるのです。
+      </p>
 
-<h2>clearfix</h2>
+      <h2>clearfix</h2>
 
-<p>疑似要素の:afterを使ってfloatの他の要素が回り込んでしまう現象を解決するための手法です。</p>
+      <p>疑似要素の:afterを使ってfloatの他の要素が回り込んでしまう現象を解決するための手法です。</p>
 
-<p>疑似要素とは条件によって適用させるかどうかを変化させるできる要素のことです。</p>
+      <p>疑似要素とは条件によって適用させるかどうかを変化させるできる要素のことです。</p>
 
-<pre class="brush: css;">
+      <pre class="brush: css;">
   a {
     background-color: red;
   }
@@ -624,12 +633,12 @@
   }
 </pre>
 
-<p>例えば上記のコードだとa要素にマウスポインターが重なったときに青色に変化します。</p>
+      <p>例えば上記のコードだとa要素にマウスポインターが重なったときに青色に変化します。</p>
 
-<p>疑似要素を大体理解したところでclearfixをやっていきましょう。
-<br> style.cssに以下のコードを追加してください。</p>
+      <p>疑似要素を大体理解したところでclearfixをやっていきましょう。
+        <br> style.cssに以下のコードを追加してください。</p>
 
-<pre class="brush: css; first-line: 53;">
+      <pre class="brush: css; first-line: 53;">
   .clearfix:after {
     content: "";
     clear: both;
@@ -637,39 +646,41 @@
   }
 </pre>
 
-<ul>
-  <h3>プロパティについて</h3>
-  <li>content ・・・ 疑似要素:afterによって作成された要素の中の文字を指定するプロパティ</li>
-  <li>clear ・・・ floatによってなくなる要素の高さ(さっきの例として挙げた画像でいう親要素の黄色ブロックの高さのこと)を正常に戻してくれるプロパティ 値はbothとすることが多い。</li>
-  <li>display ・・・ 要素の種類を変更することができるプロパティ、 今回はblock要素を扱うのでもちろんblockを指定</li>
-</ul>
+      <ul>
+        <h3>プロパティについて</h3>
+        <li>content ・・・ 疑似要素:afterによって作成された要素の中の文字を指定するプロパティ</li>
+        <li>clear ・・・ floatによってなくなる要素の高さ(さっきの例として挙げた画像でいう親要素の黄色ブロックの高さのこと)を正常に戻してくれるプロパティ 値はbothとすることが多い。</li>
+        <li>display ・・・ 要素の種類を変更することができるプロパティ、 今回はblock要素を扱うのでもちろんblockを指定</li>
+      </ul>
 
-<p>それではhtmlにclearfixを適用させましょう。 contentsクラスに clearfixを追加します。</p>
+      <p>それではhtmlにclearfixを適用させましょう。 contentsクラスに clearfixを追加します。</p>
 
-<pre class="brush: xml; first-line: 15;">
+      <pre class="brush: xml; first-line: 15;">
   <div class="contents clearfix">
     <div class="left-content"></div>
     <div class="right-content"></div>
   </div>
 </pre>
 
-<img src="image/14.png">
+      <img src="image/14.png">
 
-<p>left-content, right-contentを思い通りに横並びにすることができました。</p>
+      <p>left-content, right-contentを思い通りに横並びにすることができました。</p>
 
-<p>次にpadddingとmarginというものについてやりたいのですがいろいろ説明するための画像作ったりするのが大変なので
-「Scene-live」様のサイトを見ていただければと思います。
-  <h5>超重要事項なのでよくわからないまま適当に済ませるのは非常にまずいです。 あまり具体的なイメージがわかないなぁと思ったらすぐにTAに聞きましょう。</h5>
-<br><a href="http://scene-live.com/page.php?page=49">リンク</a></p>
+      <p>次にpadddingとmarginというものについてやりたいのですがいろいろ説明するための画像作ったりするのが大変なので 「Scene-live」様のサイトを見ていただければと思います。
+        <h5>超重要事項なのでよくわからないまま適当に済ませるのは非常にまずいです。 あまり具体的なイメージがわかないなぁと思ったらすぐにTAに聞きましょう。</h5>
+        <br>
+        <a href="http://scene-live.com/page.php?page=49">リンク</a>
+      </p>
 
-<h2>各要素を中央寄せにしよう</h2>
+      <h2>各要素を中央寄せにしよう</h2>
 
-<p>HTMLの定番と言っても過言ではない中央寄せです。<br>
-今現状としてはheaderの中身とcontentsが左に寄ってしまっているのでこれを中央寄せにしましょう。</p>
+      <p>HTMLの定番と言っても過言ではない中央寄せです。
+        <br> 今現状としてはheaderの中身とcontentsが左に寄ってしまっているのでこれを中央寄せにしましょう。
+      </p>
 
-<h4>style.cssの.heading, .navbar, .contentsに「margin: 0 auto;」を追加します。</h4>
+      <h4>style.cssの.heading, .navbar, .contentsに「margin: 0 auto;」を追加します。</h4>
 
-<pre class="brush: css; first-line: 17;">
+      <pre class="brush: css; first-line: 17;">
   .heading {
     margin: 0 auto;
     height: 100px;
@@ -691,13 +702,13 @@
   }
 </pre>
 
-<img src="image/15.png">
+      <img src="image/15.png">
 
-<p>これで要素が真ん中に寄ったことによって作ろうとしてたサイトの骨格ができましたね。
-<br>骨格ができたところで中身を作っていきましょう。</p>
+      <p>これで要素が真ん中に寄ったことによって作ろうとしてたサイトの骨格ができましたね。
+        <br>骨格ができたところで中身を作っていきましょう。</p>
 
-<h4>index.html</h4>
-<pre class="brush: xml; first-line: 8;">
+      <h4>index.html</h4>
+      <pre class="brush: xml; first-line: 8;">
   &lt;body&gt;
     <header>
       <div class="heading">
@@ -719,8 +730,8 @@
   &lt;/body&gt;
 </pre>
 
-<h4>style.css</h4>
-<pre class="brush: xml; first-line: 17;">
+      <h4>style.css</h4>
+      <pre class="brush: xml; first-line: 17;">
   .heading {
     height: 100px;
     width: 960px;
@@ -737,23 +748,23 @@
   }
 </pre>
 
-<img src="image/16.png">
+      <img src="image/16.png">
 
-<p>header部分が書き終わりました。</p>
+      <p>header部分が書き終わりました。</p>
 
-<p>次にナビゲーションバーを作っていきましょう。</p>
+      <p>次にナビゲーションバーを作っていきましょう。</p>
 
-<p>まずここで使うタグについての学習です。</p>
+      <p>まずここで使うタグについての学習です。</p>
 
-<ul>
-  <li>&lt;ul&gt; ・・・ 順序のないリストを示すブロック要素。 li要素と組み合わせて使う(unordered list)</li>
-  <li>&lt;ol&gt; ・・・ 番号がついたリストを示すブロック要素。 li要素と組み合わせて使う(ordered list)</li>
-  <li>&lt;li&gt; ・・・ リストの項目を示すブロック要素</li>
-</ul>
+      <ul>
+        <li>&lt;ul&gt; ・・・ 順序のないリストを示すブロック要素。 li要素と組み合わせて使う(unordered list)</li>
+        <li>&lt;ol&gt; ・・・ 番号がついたリストを示すブロック要素。 li要素と組み合わせて使う(ordered list)</li>
+        <li>&lt;li&gt; ・・・ リストの項目を示すブロック要素</li>
+      </ul>
 
-<p>それではindex.htmlのnavbarにリストを追加しましょう。</p>
+      <p>それではindex.htmlのnavbarにリストを追加しましょう。</p>
 
-<pre class="brush: xml; first-line: 9;">
+      <pre class="brush: xml; first-line: 9;">
   <header>
       <div class="heading">
         <h1 class="title">My home Page</h1>
@@ -770,12 +781,13 @@
     </header>
 </pre>
 
-<img src="image/17.png">
+      <img src="image/17.png">
 
-<p>navbarにリストが入りました。 ul要素の中のli要素一つ一つについている点が邪魔なのでそれを消します。 <br>
-またfloatを使ってli要素を横並びかつ左寄せにしましょう</p>
+      <p>navbarにリストが入りました。 ul要素の中のli要素一つ一つについている点が邪魔なのでそれを消します。
+        <br> またfloatを使ってli要素を横並びかつ左寄せにしましょう
+      </p>
 
-<pre class="brush: css; first-line: 64;">
+      <pre class="brush: css; first-line: 64;">
 .clearfix:after {
   content: "";
   clear: both;
@@ -795,26 +807,26 @@ ul li {
 }
 </pre>
 
-<img src="image/18.png">
+      <img src="image/18.png">
 
-<p>ここでleft-contentの中身を書いていきます。 もう少し詳しくleft-contentを見てみましょう。</p>
+      <p>ここでleft-contentの中身を書いていきます。 もう少し詳しくleft-contentを見てみましょう。</p>
 
-<img src="image/finish.png">
+      <img src="image/finish.png">
 
-<p>left-contentの中にさらに二つのブロック要素が入っています。</p>
+      <p>left-contentの中にさらに二つのブロック要素が入っています。</p>
 
-<p>まずは最近の出来事～ダイジェスト から作り上げて行こうと思うのですがその前にtable要素についてさらっとやりましょう。</p>
+      <p>まずは最近の出来事～ダイジェスト から作り上げて行こうと思うのですがその前にtable要素についてさらっとやりましょう。</p>
 
-<ul>
-  <li>table : 表を作成するブロック要素</li>
-  <li>th : 票の見出しを作成するブロック要素</li>
-  <li>tr : 表の行を作成するブロック要素</li>
-  <li>td : 表の中身のブロック要素</li>
-</ul>
+      <ul>
+        <li>table : 表を作成するブロック要素</li>
+        <li>th : 票の見出しを作成するブロック要素</li>
+        <li>tr : 表の行を作成するブロック要素</li>
+        <li>td : 表の中身のブロック要素</li>
+      </ul>
 
-<p>table要素を使ってコンテンツを作っていきましょう。</p>
+      <p>table要素を使ってコンテンツを作っていきましょう。</p>
 
-<pre class="brush: xml; first-line: 25;">
+      <pre class="brush: xml; first-line: 25;">
   <div class="left-content">
     <div class="news">
       <h2>最近の出来事～ダイジェスト</h2>
@@ -848,11 +860,11 @@ ul li {
   </div>
 </pre>
 
-<img src="image/19.png">
+      <img src="image/19.png">
 
-<p>このままだと表が窮屈に見えるので整理しましょう。</p>
+      <p>このままだと表が窮屈に見えるので整理しましょう。</p>
 
-<pre class="brush: css; first-line: 82;">
+      <pre class="brush: css; first-line: 82;">
   td {
     margin: 0;
     padding-left: 10px;
@@ -860,14 +872,14 @@ ul li {
   }
 </pre>
 
-<img src="image/20.png">
+      <img src="image/20.png">
 
-<p>これで少し表がきれいになりましたね。</p>
+      <p>これで少し表がきれいになりましたね。</p>
 
-<p>次に友達一覧を作りましょう。</p>
+      <p>次に友達一覧を作りましょう。</p>
 
-<h4>index.html</h4>
-<pre class="brush: xml; first-line: 26;">
+      <h4>index.html</h4>
+      <pre class="brush: xml; first-line: 26;">
   <div class="left-content">
     <div class="news">
       <h2>最近の出来事～ダイジェスト</h2>
@@ -910,19 +922,19 @@ ul li {
   </div>
 </pre>
 
-<h4>style.css</h4>
-<pre class="brush: css; first-line: 88;">
+      <h4>style.css</h4>
+      <pre class="brush: css; first-line: 88;">
   .friends-img {
     width: 100px;
     height: 100px;
   }
 </pre>
 
-<img src="image/21.png">
+      <img src="image/21.png">
 
-<p>次に右側の中の提出フォームを作りましょう。</p>
+      <p>次に右側の中の提出フォームを作りましょう。</p>
 
-<pre class="brush: xml; first-line: 65;">
+      <pre class="brush: xml; first-line: 65;">
   <div class="right-content">
     <div class="contact-us">
       <h3>Contact us</h3>
@@ -942,17 +954,17 @@ ul li {
   </div>
 </pre>
 
-<img src="image/22.png">
+      <img src="image/22.png">
 
-<p>footerの中身を書きます。</p>
+      <p>footerの中身を書きます。</p>
 
-<h4>index.html</h4>
-<pre class="brush: xml; first-line: 84;">
+      <h4>index.html</h4>
+      <pre class="brush: xml; first-line: 84;">
   <footer>Copyright(c): My name</footer>
 </pre>
 
-<h4>style.css</h4>
-<pre class="brush: css; first-line: 59;">
+      <h4>style.css</h4>
+      <pre class="brush: css; first-line: 59;">
   footer {
   height: 50px;
   /*background-color: #a0a0a0;*/
@@ -961,27 +973,27 @@ ul li {
 }
 </pre>
 
-<img src="image/23.png">
+      <img src="image/23.png">
 
-<p>ブロック要素を具体的に見やすくするためにそれぞれの背景色を設定していましたがこれも解除しましょう。</p>
+      <p>ブロック要素を具体的に見やすくするためにそれぞれの背景色を設定していましたがこれも解除しましょう。</p>
 
-<img src="image/finish.png">
+      <img src="image/finish.png">
 
-<p>これにてホームページの完成です。</p>
+      <p>これにてホームページの完成です。</p>
 
-<p>今回はキレイなウェブページを作ったわけではありませんがこれでブロック要素の扱い方がわかったと思います。
-<br>また、当たり前ですが一回やっただけだと覚えられないので何回も復習しましょう。</p>
+      <p>今回はキレイなウェブページを作ったわけではありませんがこれでブロック要素の扱い方がわかったと思います。
+        <br>また、当たり前ですが一回やっただけだと覚えられないので何回も復習しましょう。</p>
 
-<h1>javascript</h1>
+      <h1>javascript</h1>
 
-<p>それではjavascriptを学んでいきましょう。 はじめに述べた通りjavascriptはブラウザ上で実行できます。
-<br>今回はjavascriptの基礎、DOM操作しかやりません。 というより全部やるのは機能が多すぎて無理です。</p>
+      <p>それではjavascriptを学んでいきましょう。 はじめに述べた通りjavascriptはブラウザ上で実行できます。
+        <br>今回はjavascriptの基礎、DOM操作しかやりません。 というより全部やるのは機能が多すぎて無理です。</p>
 
-<p>まずは定番Hello World行きましょう。 javascriptはhtmlファイルを作り、
-その中に&lt;script&gt;タグを定義して、そのタグの中にソースコードを挿入することで実行できます。</p>
+      <p>まずは定番Hello World行きましょう。 javascriptはhtmlファイルを作り、 その中に&lt;script&gt;タグを定義して、そのタグの中にソースコードを挿入することで実行できます。
+      </p>
 
-<h5>sample.html</h5>
-<pre class="brush: html;">
+      <h5>sample.html</h5>
+      <pre class="brush: html;">
   &lt;!DOCTYPE html&gt;
   &lt;html&gt;
     &lt;head&gt;
@@ -998,10 +1010,10 @@ ul li {
 
 </pre>
 
-<p>また.htmlファイルと.jsファイルを分けて.htmlから.jsを読み込んで実行することもできます。</p>
+      <p>また.htmlファイルと.jsファイルを分けて.htmlから.jsを読み込んで実行することもできます。</p>
 
-<h5>sample.html</h5>
-<pre class="brush: html;">
+      <h5>sample.html</h5>
+      <pre class="brush: html;">
   &lt;!DOCTYPE html&gt;
   &lt;html&gt;
     &lt;head&gt;
@@ -1014,14 +1026,14 @@ ul li {
     &lt;/body&gt;
   &lt;html&gt;
 </pre>
-<h5>sample.js</h5>
-<pre class="brush: js;">
+      <h5>sample.js</h5>
+      <pre class="brush: js;">
 console.log("Hello World");
 </pre>
 
-<p>これからは後者の方法でやっていきます。 Htmlの項でつくったあなたのWEBサイトのディレクトリはこんな感じの構造になっていると思います。</p>
+      <p>これからは後者の方法でやっていきます。 Htmlの項でつくったあなたのWEBサイトのディレクトリはこんな感じの構造になっていると思います。</p>
 
-<pre class="brush: xml;">
+      <pre class="brush: xml;">
   HomePage<br>
     +---+ index.html
         | style.css
@@ -1029,8 +1041,8 @@ console.log("Hello World");
         +
 </pre>
 
-<p>これを以下のように変えましょう。</p>
-<pre class="brush: xml;">
+      <p>これを以下のように変えましょう。</p>
+      <pre class="brush: xml;">
   HomePage<
     +---+ index.html
         | assets
@@ -1042,8 +1054,8 @@ console.log("Hello World");
                     +---+ sample.js
 </pre>
 
-<h5>index.html</h5>
-<pre class="brush: html;">
+      <h5>index.html</h5>
+      <pre class="brush: html;">
   &lt;!DOCTYPE html&gt;
   &lt;html&gt;
     &lt;head&gt;
@@ -1059,30 +1071,30 @@ console.log("Hello World");
     &lt;/body&gt;
   &lt;html&gt;
 </pre>
-<h5>sample.js</h5>
-<pre class="brush: js;">
+      <h5>sample.js</h5>
+      <pre class="brush: js;">
 console.log("Hello World");
 </pre>
 
-<p>この状態にしてindex.htmlをブラウザで開いてみてからF12キーを押しましょう。 Console欄にHello Worldが表示されています。</p>
+      <p>この状態にしてindex.htmlをブラウザで開いてみてからF12キーを押しましょう。 Console欄にHello Worldが表示されています。</p>
 
-<p>このようにしてsample.jsを編集していきましょう。</p>
+      <p>このようにしてsample.jsを編集していきましょう。</p>
 
-<p>jsは変数が使えます。 使ってみましょう。</p>
+      <p>jsは変数が使えます。 使ってみましょう。</p>
 
-<h5>sample.js</h5>
-<pre class="brush: js;">
+      <h5>sample.js</h5>
+      <pre class="brush: js;">
   int i = 6;
   console.log(i); // C言語の%dはいりません。 普通にiと入れるだけで表示できます。
   var v = 7.8;
   console.log(v); // varというのは型推論というものでどんな値(文字、数字、クラスのオブジェクト, 配列オブジェクトなどなど)でも入れることができます。 すごい便利
 </pre>
 
-<p>またif, while, for, switchもC言語とまったく同じように使えます。 ここら辺は説明しません。</p>
+      <p>またif, while, for, switchもC言語とまったく同じように使えます。 ここら辺は説明しません。</p>
 
-<p>次に配列を使っていきましょう。</p>
+      <p>次に配列を使っていきましょう。</p>
 
-<pre class="brush: js;">
+      <pre class="brush: js;">
   var myArray = [0, 5, 3];
 
   console.log(myArray[0]);
@@ -1090,16 +1102,16 @@ console.log("Hello World");
   console.log(myArray[2]);
 </pre>
 
-<p>配列型変数は実は参照型というものなのです。 ここで値型と参照型について学びましょう。</p>
+      <p>配列型変数は実は参照型というものなのです。 ここで値型と参照型について学びましょう。</p>
 
-<ul>
-  <li>値型 : 実際の値を入れて扱う型、 例えばint i = 0; とか double r = 8.9;とかは実際の値が入っていますよね？ これを値型といいます。</li>
-  <li>参照型 : データが存在するアドレスを指し示してそこの中身を参照する型。 例で挙げるとポインタ、アドレスなどです。</li>
-</ul>
+      <ul>
+        <li>値型 : 実際の値を入れて扱う型、 例えばint i = 0; とか double r = 8.9;とかは実際の値が入っていますよね？ これを値型といいます。</li>
+        <li>参照型 : データが存在するアドレスを指し示してそこの中身を参照する型。 例で挙げるとポインタ、アドレスなどです。</li>
+      </ul>
 
-<p>値型は具体的なイメージが湧くと思いますが参照型はすこし厳しいでしょうか。 例を挙げていきます。</p>
+      <p>値型は具体的なイメージが湧くと思いますが参照型はすこし厳しいでしょうか。 例を挙げていきます。</p>
 
-<pre class="brush: js;">
+      <pre class="brush: js;">
   var myArray = [4, 5, 3, 9];
 
   var subArray = myArray;
@@ -1115,22 +1127,22 @@ console.log("Hello World");
   console.log(subArray[2]);
 </pre>
 
-<p>subArrayはmyArrayが指し示しているデータのアドレスと同じアドレスを指し示しているのでmyArrayの値を変えるとsubArrayの値も変わってしまいます。</p>
+      <p>subArrayはmyArrayが指し示しているデータのアドレスと同じアドレスを指し示しているのでmyArrayの値を変えるとsubArrayの値も変わってしまいます。</p>
 
-<p>これが参照型の性質です。 覚えておきましょう。</p>
+      <p>これが参照型の性質です。 覚えておきましょう。</p>
 
-<p>また配列は自由にn次元配列のようなものを作れます。</p>
+      <p>また配列は自由にn次元配列のようなものを作れます。</p>
 
-<pre class="brush: js;">
+      <pre class="brush: js;">
   var myArray = [[4, 6], [7, 7, 4], 2, 5];
 
   console.log(myArray[0][1]);
   console.log(myArray[2]);
 </pre>
 
-<p>また、以下のような配列を操作するメソッドも用意されています。</p>
+      <p>また、以下のような配列を操作するメソッドも用意されています。</p>
 
-<pre class="brush: js;">
+      <pre class="brush: js;">
   var myArray = [[4, 6], [7, 7, 4], 2, 5];
 
   myArray.push(4); // 最後尾に4を追加する。
@@ -1139,7 +1151,7 @@ console.log("Hello World");
   console.log(myArray);
 </pre>
 
-<pre class="brush: js;">
+      <pre class="brush: js;">
   var myArray = [[4, 6], [7, 7, 4], 2, 5];
 
   var i = myArray.pop();// 最後尾から要素を取り出す。
@@ -1148,7 +1160,7 @@ console.log("Hello World");
   console.log(i);
 </pre>
 
-<pre class="brush: js;">
+      <pre class="brush: js;">
   var myArray = [[4, 6], [7, 7, 4], 2, 5];
 
   var i = myArray.shift(); // 先頭から要素を取り出す
@@ -1157,7 +1169,7 @@ console.log("Hello World");
   console.log(i);
 </pre>
 
-<pre class="brush: js;">
+      <pre class="brush: js;">
   var myArray = [[4, 6], [7, 7, 4], 2, 5];
 
   myArray.unshift(["jjjjj", "jgerijghi", 8.4]); // 先頭に要素を追加する
@@ -1165,9 +1177,9 @@ console.log("Hello World");
   console.log(myArray);
 </pre>
 
-<p>次に関数を作りましょう。 以下のコードを打ってみてください。</p>
+      <p>次に関数を作りましょう。 以下のコードを打ってみてください。</p>
 
-<pre class="brush: js;">
+      <pre class="brush: js;">
   function minusFive(num) {
     return num - 5;
   }
@@ -1176,9 +1188,9 @@ console.log("Hello World");
   console.log(minusFive(8));
 </pre>
 
-<p>最後に配列とは一味違う連想配列というものをやりましょう。 以下のコードを見てください。まずは連想配列の定義方法を学びます。</p>
+      <p>最後に配列とは一味違う連想配列というものをやりましょう。 以下のコードを見てください。まずは連想配列の定義方法を学びます。</p>
 
-<pre class="brush: js;">
+      <pre class="brush: js;">
   var myHashA = {
     a : "A_item", // : の左側がキー値といいます、右側が中身です。 
     b : "B_item"
@@ -1190,9 +1202,9 @@ console.log("Hello World");
   };
 </pre>
 
-<p>次に連想配列のデータのとり方を学びます。 次のコードを打ちましょう。</p>
+      <p>次に連想配列のデータのとり方を学びます。 次のコードを打ちましょう。</p>
 
-<pre class="brush: js;">
+      <pre class="brush: js;">
   var myHashA = {
     a : "A_item",
     b : "B_item"
@@ -1220,16 +1232,16 @@ console.log("Hello World");
 
 </pre>
 
-<p>これでハッシュを扱うことができました。 これにて基本文法は終了です。</p>
+      <p>これでハッシュを扱うことができました。 これにて基本文法は終了です。</p>
 
-<h2>DOMとは？</h2>
+      <h2>DOMとは？</h2>
 
-<p>Document Object Modelの略です。 単純に言うとhtmlファイルの中の要素のimgとかdivとかにアクセスする仕組みのことです。</p>
+      <p>Document Object Modelの略です。 単純に言うとhtmlファイルの中の要素のimgとかdivとかにアクセスする仕組みのことです。</p>
 
-<p>それでは実際にDOM操作やってみましょう。 MyHomePageのindex.htmlに以下の要素を追加してください</p>
+      <p>それでは実際にDOM操作やってみましょう。 MyHomePageのindex.htmlに以下の要素を追加してください</p>
 
-<h5>index.html</h5>
-<pre class="brush: xml; first-line: 53;">
+      <h5>index.html</h5>
+      <pre class="brush: xml; first-line: 53;">
   <div class="friends">
     <h2>友達一覧</h2>
     <ul>
@@ -1252,10 +1264,10 @@ console.log("Hello World");
   <!-- -->
 </pre>
 
-<p>追加部分の操作をしていきましょう。</p>
+      <p>追加部分の操作をしていきましょう。</p>
 
-<h5>sample.js</h5>
-<pre class="brush: js;">
+      <h5>sample.js</h5>
+      <pre class="brush: js;">
   var divId = getElementById('addId');
   var divClass = getElementByClassName('addClass');
 
@@ -1263,29 +1275,29 @@ console.log("Hello World");
   divClass.innerHTML="Class指定のよるHTMLの追加"
 </pre>
 
-<p>これで追加部分の要素にHTMLが追加されました。</p>
+      <p>これで追加部分の要素にHTMLが追加されました。</p>
 
-<p>DOM操作のイメージはこんな感じです。 要素を指定してその中の変数やメソッドを駆使して中身を書き換える、この流れに従えばどうにかなります。</p>
+      <p>DOM操作のイメージはこんな感じです。 要素を指定してその中の変数やメソッドを駆使して中身を書き換える、この流れに従えばどうにかなります。</p>
 
-<p><a href="http://qiita.com/kouh/items/dfc14d25ccb4e50afe89">もう少し詳しくやりたい方はこちらで学んでみてください。</a></p>
+      <p>
+        <a href="http://qiita.com/kouh/items/dfc14d25ccb4e50afe89">もう少し詳しくやりたい方はこちらで学んでみてください。</a>
+      </p>
 
-<p>以上で終了です。 javascriptはあまり踏み込めませんでしたが興味ある方はやってみてください。</p>
+    </article>
 
-      </article>
+    <div class="right-content">
+      <div class="btn" data-url="../Lesson0/index.html">0回目(環境構築)</div>
+      <div class="btn" data-url="../Lesson1/index.html">1回目(HTML&CSS, javascriptの基本)</div>
+      <div class="btn" data-url="../Lesson2/index.html">2回目(Rubyの基本文法, Railsの基本)</div>
+      <div class="btn" data-url="../Lesson3/index.html">3回目(WEBサービス作成 その1)</div>
+      <div class="btn" data-url="../Lesson4/index.html">4回目(WEBサービス作成 その2)</div>
+      <div class="btn" data-url="../Lesson5/index.html">5回目</div>
 
-      <div class="right-content">
-        <div class="btn" data-url="../Lesson0/index.html">0回目(環境構築)</div>
-        <div class="btn" data-url="../Lesson1/index.html">1回目(HTML&CSS, javascriptの基本)</div>
-        <div class="btn" data-url="../Lesson2/index.html">2回目(Rubyの基本文法, Railsの基本)</div>
-        <div class="btn" data-url="../Lesson3/index.html">3回目(WEBサービス作成 その1)</div>
-        <div class="btn" data-url="../Lesson4/index.html">4回目(WEBサービス作成 その2)</div>
-        <div class="btn" data-url="../Lesson5/index.html">5回目</div>
-
-      </div>
     </div>
+  </div>
 
-    <footer>
-    </footer>
-  </body>
+  <footer>
+  </footer>
+</body>
 
 </html>

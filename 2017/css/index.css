@@ -1,0 +1,149 @@
+/* サイドオープン時にメインコンテンツを覆う部分 */
+
+.overlay {
+  content: "";
+  visibility: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0);
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  z-index: 3;
+}
+
+.overlay::after {
+  content: "click to close SideBar";
+  visibility: hidden;
+  position: fixed;
+  top: 40%;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 50px;
+  color: rgba(255, 255, 255, 0);
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.side-open .overlay {
+  visibility: visible;
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.side-open .overlay::after {
+  visibility: visible;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* サイドメニュー ※リストのスタイルは省略 */
+
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: 100%;
+  padding-top: 8rem;
+  padding-left: 1rem;
+  z-index: 1;
+}
+
+/* 開閉用ボタン ※ボタンの細かいスタイルは省略 */
+
+.side-menu-btn {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  width: 3.5rem;
+  height: 3.5rem;
+  padding: 5px;
+  cursor: pointer;
+  z-index: 4;
+}
+
+/* メインコンテンツ */
+
+.wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  font-size: 13px;
+  background: #f8f8f8;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  z-index: 2;
+}
+
+/* メインコンテンツ内のスタイル ※デザインに併せて適当に */
+
+.header {
+  padding: 100px 0;
+  background: #161616;
+  color: #fff;
+}
+
+.header h1,
+.contents h1 {
+  margin-bottom: 30px;
+  font-size: 20px;
+}
+
+.contents {
+  width: 100%;
+  padding: 150px 0;
+  background: #f5f5f5;
+}
+
+.contents p {
+  margin-bottom: 50px;
+}
+
+.footer {
+  padding: 150px 0;
+  background: #fff;
+
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+/* サイドメニューオープン */
+
+.side-open .wrapper,
+.side-open .overlay {
+  -webkit-transform: translate3d(300px, 0, 0);
+  transform: translate3d(300px, 0, 0);
+}
+
+/* router-component transition */
+
+/* enter、 leave アニメーションで異なる間隔やタイミング関数を利用することができます */
+
+.slide-fade-enter-active {
+  transition: all 0.6s cubic-bezier(1, 0.01, 0.465, 0.035);
+}
+
+.slide-fade-leave-active {
+  transition: all 0.3s ease;
+}
+
+.slide-fade-enter,
+.slide-fade-leave-to {
+  transform: translateX(10px);
+  opacity: 0;
+}
+
+.header-content {
+  background-image: url("../assets/img/title.png");
+}
+
+.main-content {
+  min-height: 40rem;
+}

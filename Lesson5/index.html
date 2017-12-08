@@ -1,46 +1,237 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="../css/style.css">
-    <title>Koken Ruby on Rails</title>
-    <script src="../js/jquery-3.1.1.min.js"></script>
 
-    <script type="text/javascript" src="../syntaxHighlighter/scripts/shCore.js"></script>
-    <script type="text/javascript" src="../syntaxHighlighter/scripts/shBrushJScript.js"></script>
-    <script type="text/javascript" src="../syntaxHighlighter/scripts/shAutoloader.js"></script>
-    <link type="text/css" rel="stylesheet" href="../syntaxHighlighter/styles/shCoreDefault.css"/>
-    <script type="text/javascript">
-      SyntaxHighlighter.all();
-    </script>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" href="../css/style.css">
+  <title>Koken Ruby on Rails</title>
+  <script src="../js/jquery-3.1.1.min.js"></script>
 
-    <script src="../js/application.js"></script>
-  </head>
-  <body>
+  <script type="text/javascript" src="../syntaxHighlighter/scripts/shCore.js"></script>
+  <script type="text/javascript" src="../syntaxHighlighter/scripts/shBrushJScript.js"></script>
+  <script type="text/javascript" src="../syntaxHighlighter/scripts/shBrushRuby.js"></script>
+  <script type="text/javascript" src="../syntaxHighlighter/scripts/shBrushXml.js"></script>
+  <script type="text/javascript" src="../syntaxHighlighter/scripts/shAutoloader.js"></script>
+  <link type="text/css" rel="stylesheet" href="../syntaxHighlighter/styles/shCoreDefault.css" />
+  <script type="text/javascript">
+    SyntaxHighlighter.all();
+  </script>
 
-    <div class="navbar"></div>
-    <header></header>
+  <script src="../js/application.js"></script>
+</head>
 
-    <div class="contents clearfix">
+<body>
 
-      <article class="left-content">
-工事中
-      </article>
+  <div class="navbar"></div>
+  <header></header>
 
-      <div class="right-content">
-        <div class="btn" data-url="../Lesson0/index.html">0回目(環境構築)</div>
-        <div class="btn" data-url="../Lesson1/index.html">1回目(HTML&CSS, javascriptの基本)</div>
-        <div class="btn" data-url="../Lesson2/index.html">2回目(Rubyの基本文法, Railsの基本)</div>
-        <div class="btn" data-url="../Lesson3/index.html">3回目(WEBサービス作成 その1)</div>
-        <div class="btn" data-url="../Lesson4/index.html">4回目(WEBサービス作成 その2)</div>
-        <div class="btn" data-url="../Lesson5/index.html">5回目</div>
+  <div class="contents clearfix">
 
-      </div>
+    <article class="left-content">
+      <h1>第1回RubyOnRails講習 javascript基礎文法編</h1>
+
+      <p>今回はjavascriptの基本文法および,それを使って何ができるのかということをやっていきたいと思います</p>
+
+      <p>まずはhello worldからいきましょう</p>
+
+      <p>エディタでsample.htmlというファイルを作り,scriptタグを作ります.</p>
+
+      <pre class="brush: xml">
+        &lt;!DOCTYPE html&gt;
+        &lt;html&gt;
+          &lt;head&gt;
+            <meta charset="UTF-8">
+            <title>Sample div tag</title>
+            <link rel="stylesheet" href="style.css">
+          &lt;/head&gt;
+          &lt;body&gt;
+            <script>
+              /*ここにjavascriptのコードを書いていく */
+              console.log("Hello world");
+            </script>
+          &lt;/body&gt;
+        &lt;/html&gt;
+      </pre>
+
+      <p>次に変数を扱いましょう. </p>
+
+      <pre class="brush: js">
+        var a = 1; // 今までのjsの変数の書き方.
+        let b = 1; // 新しいjs(ES6)の変数の書き方
+        const c = 1; // 定数(ES6)
+
+        // letはこんなこともできる
+        let foo = [2, 3, 4];
+        {
+          let foo = [1, 2, 3]; // このletはこの{}内でのみ有効
+          console.log(foo);
+        }
+        console.log(foo);
+      </pre>
+
+      <p>ES6は対応しているブラウザでしか動きません(IE8は流石に使っている人いないよね・・・？)</p>
+
+      <p>javascriptではC言語のようにint, char型といった型はなく, var let constを使って自動的に型を判別して代入してくれる機能を用いて変数を扱います</p>
+
+      <p>if, for, whileはC言語と文法はほとんど同じです.</p>
+
+      <pre class="brush: js">
+        let a = 1;
+
+        if (a == 1) { console.log("a = 1")}
+        else { console.log("a != 1")}
+
+        for (let i = 0; i < 10; i++) {
+          console.log(i);
+        }
+      </pre>
+
+      <p>関数定義はC言語と違い,変数に関数の中身を入れて扱っていく形になります</p>
+
+      <pre class="brush: js">
+        let hoge = function(a, b) {
+          console.log(a + b);
+        }
+
+        hoge(1, 3);
+
+        // こんな書き方もできるが,覚えられないなら無理してやらなくてもOK
+        let fuga = (a, b) => {
+          console.log(a + b);
+        }
+
+        fuga(2, 4);
+
+        // これでも関数宣言はできるが,変数に関数を代入する感覚を養って欲しいのでなるべく上の方法でやってください
+        function hoge1(b, c) { console.log(b + c); }
+      </pre>
+
+      <p>javascriptでは配列の他にオブジェクトというめちゃくちゃ便利なデータ構造があります</p>
+
+      <pre class="brush: js">
+        let hoge = {
+          "a": 1,
+          "b": [1, 3, 4, 5],
+          "c": {
+            "hoge": 1,
+            "fuga": 5
+          }
+        }
+
+         console.log(hoge["a"]);
+         console.log(hoge["b"]);
+         console.log(hoge["c"]);
+         console.log(hoge["c"]["hoge"]);
+         console.log(hoge["c"]["fuga"]);
+      </pre>
+
+      <p>このオブジェクトはこれからかなり使うと思うのでぜひ覚えてください</p>
+
+      <p>次にDOM操作というものをやります</p>
+
+      <p>DOMとはhtmlの要素のことを言い,(aタグとか)</p>
+      <p>DOM操作とはその要素の中身をjsから変えたり消したりする操作のことを言います</p>
+
+      <p>実際にやってみましょう, htmlファイルのscriptタグの外に適当なaタグをひとつ作りましょう</p>
+
+      <pre class="brush: xml">
+        <a class="hoge" id="fuga" href="">homepage</a>
+      </pre>
+
+      <pre class="brush: js">
+        let a = document.querySelector("a"); // tagの指定によりDOMを取り出す
+
+        a.innerHTML = "<h1>changed</h1>";
+
+        document.querySelector(".hoge").innerHTML = "<h1>changed 2</h1>"; // classによる指定はこれ
+        document.querySelector("#fuga").innerHTML = "<h1>changed 3</h1>"; // idによる指定はこれ
+      </pre>
+
+      <p>
+        このようにjavascriptによってhtmlの内容を変えることができます. 全てを載せることはほぼ不可能に近いので「js DOM操作」で調べてみてください
+      </p>
+
+      <p>以下のように、ボタンのイベントをjsで受け取ることもできる</p>
+
+      <pre class="brush: xml">
+        <input type="button" onClick="hoge()"> <!-- このボタンが押された時,hoge関数が呼び出される -->
+
+        <script>
+          hoge = function () {
+            console.log("aaaa");
+          }
+        </script>
+      </pre>
+
+      <p></p>
+
+      <h2>プログラミング課題</h2>
+
+      <h3>課題 DOM操作</h3>
+      <p>1. 以下のhtmlのhogeクラスをjavascriptのDOM操作によって自分の好きな文字列に変更せよ</p>
+      <pre class="brush: xml">
+        <p class="hoge">Ruby on Rails講習</p>
+        <p class="fuga">ここは変えないでね</p>
+      </pre>
+
+      <p>2. 以下のhtmlのボタンが押されたら、alertを出すjsをかけ</p>
+      <pre class="brush: xml">
+        <input type="button" onClick="popup">
+      </pre>
+      <p>確認ダイアログを出すjavascriptは以下のようにしてできる</p>
+      <pre class="brush: js">
+        window.alert("Clicked button!!");
+      </pre>
+
+
+      <p>3. 以下のhtmlのボタンが押されたら、確認ダイアログを出すjsをかけ そのダイアログはYesの場合googleへ、Noの場合 window.alert で適当な文字列を表示する</p>
+      <p>リダイレクトの処理は js内で location.href="url" でできる</p>
+      <pre class="brush: xml">
+        <input type="button" onClick="popup">
+      </pre>
+      <p>確認ダイアログを出すjavascriptは以下のようにしてできる</p>
+      <pre class="brush: js">
+        let popup = function() {
+          window.confirm("Yes or No?");
+        }
+      </pre>
+
+      <p>
+        window.confirmはユーザーの入力によって true, falseが帰ってくる つまり、OK, キャンセルによって違う処理を実装したいとなった場合
+      </p>
+
+      <pre class="brush: js">
+        if (window.confirm("Yes or No?")) {
+          // Yesの場合の処理
+        }
+        else {
+          // Noの場合の処理
+        }
+      </pre>
+
+      <p>とすればよい</p>
+
+      <p>4. htmlのbuttonを使い,血液型占いを作りましょう</p>
+      <p>完成予想図</p>
+      <img src="./image/1.png">
+
+
+    </article>
+
+    <div class="right-content">
+      <div class="btn" data-url="../Lesson0/index.html">0回目(環境構築)</div>
+      <div class="btn" data-url="../Lesson1/index.html">1回目(HTML&CSS, javascriptの基本)</div>
+      <div class="btn" data-url="../Lesson2/index.html">2回目(Rubyの基本文法, Railsの基本)</div>
+      <div class="btn" data-url="../Lesson3/index.html">3回目(WEBサービス作成 その1)</div>
+      <div class="btn" data-url="../Lesson4/index.html">4回目(WEBサービス作成 その2)</div>
+      <div class="btn" data-url="../Lesson5/index.html">5回目</div>
+
     </div>
+  </div>
 
-    <footer>
-    </footer>
-  </body>
+  <footer>
+  </footer>
+</body>
 
 </html>
