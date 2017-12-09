@@ -1,4 +1,4 @@
-var App = {
+let App = {
   data: function () {
     return {
       isOpenDrawer: false
@@ -8,6 +8,9 @@ var App = {
   methods: {
     toggleDrawer: function () {
       this.isOpenDrawer = !this.isOpenDrawer;
+    },
+    changeContent: function (section, page) {
+      this.$store.commit('changeContent', { section: section, page: page })
     }
   },
   components: {
@@ -28,80 +31,68 @@ var App = {
 
     <!-- サイドメニュー(drawer menu bar) -->
     <div class="side-menu">
-      <aside class="menu">
+      <aside class="menu scroll">
+
+        <p class="menu-label">第0回講習</p>
+        <ul class="menu-list">
+          <li>
+            <a v-on:click="changeContent(0, 1)">
+              <span class="icon"><i class="fa fa-window-maximize"></i></span>
+              <span>Home</span>
+            </a>
+          </li>
+          <li>
+            <a v-on:click="changeContent(0, 2)">
+              <span class="icon"><i class="fa fa-window-maximize"></i></span>
+              <span>Home</span>
+            </a>
+          </li>
+        </ul>
+
         <p class="menu-label">第1回講習</p>
         <ul class="menu-list">
           <li>
-            <a href="http://google.com">
+            <a v-on:click="changeContent(1, 1)">
               <span class="icon">
-                <i class="fa fa-home"></i>
+                <i class="fa fa-window-maximize"></i>
               </span>
               <span>Home</span>
             </a>
           </li>
         </ul>
+        
         <p class="menu-label">第2回講習</p>
         <ul class="menu-list">
           <li>
-            <a>
-              <span class="icon">
-                <i class="fa fa-book"></i>
-              </span>
-              <span>Book検索</span>
+            <a v-on:click="changeContent(2, 1)">
+              <span class="icon"><i class="fa fa-window-maximize"></i></span>
+              <span>Tag検索</span>
             </a>
           </li>
           <li>
-            <a class="is-active">
-              <span class="icon">
-                <i class="fa fa-user"></i>
-              </span>
-              <span>User検索</span>
-            </a>
-          </li>
-          <li>
-            <a>
-              <span class="icon">
-                <i class="fa fa-tags"></i>
-              </span>
+            <a v-on:click="changeContent(2, 2)">
+              <span class="icon"><i class="fa fa-window-maximize"></i></span>
               <span>Tag検索</span>
             </a>
           </li>
         </ul>
+
         <p class="menu-label">第3回講習</p>
         <ul class="menu-list">
           <li>
-            <a>
-              <span class="icon">
-                <i class="fa fa-book"></i>
-              </span>
+            <a v-on:click="changeContent(3, 1)">
+              <span class="icon"><i class="fa fa-window-maximize"></i></span>
               <span>Book</span>
             </a>
           </li>
-          <li>
-            <a>
-              <span class="icon">
-                <i class="fa fa-tag"></i>
-              </span>
-              <span>Tag</span>
-            </a>
-          </li>
         </ul>
+
         <p class="menu-label">第4回講習</p>
         <ul class="menu-list">
           <li>
-            <a href="/users/edit">
-              <span class="icon">
-                <i class="fa fa-cog"></i>
-              </span>
+            <a v-on:click="changeContent(4, 1)">
+              <span class="icon"><i class="fa fa-cog"></i></span>
               <span>設定</span>
-            </a>
-          </li>
-          <li>
-            <a href="/users/sign_out">
-              <span class="icon">
-                <i class="fa fa-sign-out"></i>
-              </span>
-              <span>ログアウト</span>
             </a>
           </li>
         </ul>
@@ -140,7 +131,7 @@ var App = {
         <div class="container">
           <div class="content has-text-centered">
             <h4>
-              <strong>2017. Ruby on Rails lecture by <a href="">Takuto Ohoka(koken15)</a>. 
+              <strong>2017. Ruby on Rails lecture by <a href="">Takuto Ohoka(koken15)</a>. </strong>
             </h4>
           </div>
         </div>
@@ -151,10 +142,3 @@ var App = {
   </div>
   `
 };
-
-window.vm = new Vue({
-  el: '#app',
-  components: {
-    App, Content
-  }
-})
