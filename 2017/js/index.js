@@ -1,7 +1,45 @@
 let App = {
   data: function () {
     return {
-      isOpenDrawer: false
+      isOpenDrawer: false,
+      sections: [
+        {
+          id: 0,
+          title: '第0回~環境構築~',
+          pages: [
+            { id: 1, name: '必要ソフトのインストールをしよう' }
+          ]
+        },
+        {
+          id: 1,
+          title: '第1回~HTML,CSS,Ruby,javascript~',
+          pages: [
+            { id: 1, name: 'HTML, CSS入門' }
+          ]
+        },
+        {
+          id: 2,
+          title: '第2回~Rails入門~',
+          pages: [
+            { id: 1, name: '基本的なRailsコマンド' }
+          ]
+        },
+        {
+          id: 3,
+          title: '第3回~WEBサービス作成1~',
+          pages: [
+            { page: 1, name: 'Twitterもどきを作ろう' }
+          ]
+        },
+        {
+          id: 4,
+          title: '第4回~WEBサービス作成2~',
+          pages: [
+            { id: 1, name: 'Databaseとは' }
+          ]
+        },
+
+      ]
     };
   },
   filters: {},
@@ -33,69 +71,18 @@ let App = {
     <div class="side-menu">
       <aside class="menu scroll">
 
-        <p class="menu-label">第0回講習</p>
+        <template v-for="section in sections">
+        <p class="menu-label">{{ section.title }}</p>
         <ul class="menu-list">
-          <li>
-            <a v-on:click="changeContent(0, 1)">
+          <li v-for="page in section.pages">
+            <a v-on:click="changeContent(section.id, page.id)">
               <span class="icon"><i class="fa fa-window-maximize"></i></span>
-              <span>Home</span>
-            </a>
-          </li>
-          <li>
-            <a v-on:click="changeContent(0, 2)">
-              <span class="icon"><i class="fa fa-window-maximize"></i></span>
-              <span>Home</span>
+              <span>{{ page.name }}</span>
             </a>
           </li>
         </ul>
+        </template>
 
-        <p class="menu-label">第1回講習</p>
-        <ul class="menu-list">
-          <li>
-            <a v-on:click="changeContent(1, 1)">
-              <span class="icon">
-                <i class="fa fa-window-maximize"></i>
-              </span>
-              <span>Home</span>
-            </a>
-          </li>
-        </ul>
-        
-        <p class="menu-label">第2回講習</p>
-        <ul class="menu-list">
-          <li>
-            <a v-on:click="changeContent(2, 1)">
-              <span class="icon"><i class="fa fa-window-maximize"></i></span>
-              <span>Tag検索</span>
-            </a>
-          </li>
-          <li>
-            <a v-on:click="changeContent(2, 2)">
-              <span class="icon"><i class="fa fa-window-maximize"></i></span>
-              <span>Tag検索</span>
-            </a>
-          </li>
-        </ul>
-
-        <p class="menu-label">第3回講習</p>
-        <ul class="menu-list">
-          <li>
-            <a v-on:click="changeContent(3, 1)">
-              <span class="icon"><i class="fa fa-window-maximize"></i></span>
-              <span>Book</span>
-            </a>
-          </li>
-        </ul>
-
-        <p class="menu-label">第4回講習</p>
-        <ul class="menu-list">
-          <li>
-            <a v-on:click="changeContent(4, 1)">
-              <span class="icon"><i class="fa fa-cog"></i></span>
-              <span>設定</span>
-            </a>
-          </li>
-        </ul>
       </aside>
     </div>
     <!-- サイドメニュー -->

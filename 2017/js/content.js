@@ -11,7 +11,7 @@ let Content = {
   },
   template: `
   <div class="box container" style="margin-top: 2rem;">
-    <div v-html="compiledMarkdown"></div>
+    <div class="main-contents" v-html="compiledMarkdown"></div>
   </div>
   `
 };
