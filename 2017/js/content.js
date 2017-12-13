@@ -6,6 +6,7 @@ let Content = {
   },
   computed: {
     compiledMarkdown: function () {
+      // _.debounce(function () { hljs.highlightBlock(document.querySelector('pre code')); }, 1000)
       return marked(this.$store.state.content)
     }
   },

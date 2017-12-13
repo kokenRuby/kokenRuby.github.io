@@ -49,6 +49,9 @@ let App = {
     },
     changeContent: function (section, page) {
       this.$store.commit('changeContent', { section: section, page: page })
+    },
+    changeTestContent: function () {
+      this.$store.commit('changeTestContent');
     }
   },
   components: {
@@ -82,6 +85,16 @@ let App = {
           </li>
         </ul>
         </template>
+
+        <p class="menu-label">test</p>
+        <ul class="menu-list">
+          <li>
+            <a v-on:click="changeTestContent()">
+              <span class="icon"><i class="fa fa-window-maximize"></i></span>
+              <span>test</span>
+            </a>
+          </li>
+        </ul>
 
       </aside>
     </div>
