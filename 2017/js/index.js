@@ -81,13 +81,17 @@ let App = {
 
         <template v-for="section in sections">
         <p class="menu-label">{{ section.title }}</p>
+        <p class="menu-label">{{ section.pages }}</p>
+        
         <ul class="menu-list">
-          <li v-for="page in section.pages">
+          <template v-for="page in section.pages">
+          <li>
             <a v-on:click="changeContent(section.id, page.id)">
               <span class="icon"><i class="fa fa-window-maximize"></i></span>
               <span>{{ page.name }}</span>
             </a>
           </li>
+          </template>
         </ul>
         </template>
 
