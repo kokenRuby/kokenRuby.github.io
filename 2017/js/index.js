@@ -15,6 +15,10 @@ let App = {
           id: 1,
           title: '第1回~HTML,CSS,Ruby,javascript~',
           pages: [
+            { id: 1, name: 'HTML, CSS入門' },
+            { id: 1, name: 'HTML, CSS入門' },
+            { id: 1, name: 'HTML, CSS入門' },
+            { id: 1, name: 'HTML, CSS入門' },
             { id: 1, name: 'HTML, CSS入門' }
           ]
         },
