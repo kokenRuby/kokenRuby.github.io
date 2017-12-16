@@ -8,7 +8,8 @@ let App = {
           title: '第0回~環境構築~',
           pages: [
             { id: 1, name: '必要ソフトのインストールをしよう' },
-            { id: 2, name: 'vimの使い方' }
+            { id: 2, name: 'vimの使い方' },
+            { id: 3, name: 'MySQLの使い方' }
           ]
         },
         {
