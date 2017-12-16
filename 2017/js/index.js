@@ -16,10 +16,8 @@ let App = {
           title: '第1回~HTML,CSS,Ruby,javascript~',
           pages: [
             { id: 1, name: 'HTML, CSS入門' },
-            { id: 1, name: 'HTML, CSS入門' },
-            { id: 1, name: 'HTML, CSS入門' },
-            { id: 1, name: 'HTML, CSS入門' },
-            { id: 1, name: 'HTML, CSS入門' }
+            { id: 2, name: 'javascript入門' },
+            { id: 3, name: 'Ruby基本文法入門' }
           ]
         },
         {
@@ -81,7 +79,6 @@ let App = {
 
         <template v-for="section in sections">
         <p class="menu-label">{{ section.title }}</p>
-        <p class="menu-label">{{ section.pages }}</p>
         
         <ul class="menu-list">
           <template v-for="page in section.pages">
