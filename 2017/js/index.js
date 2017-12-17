@@ -23,9 +23,13 @@ let App = {
         },
         {
           id: 2,
-          title: '第2回~Rails入門~',
+          title: '第2回~Rails入門~ railsコマンドの使い方を覚える',
           pages: [
-            { id: 1, name: '基本的なRailsコマンド' }
+            { id: 1, name: 'Railsとは' },
+            { id: 2, name: 'オブジェクト指向とは？クラスとは何か' },
+            { id: 3, name: 'MVCアーキテクチャとは' },
+            { id: 4, name: 'Railsコマンドを使いこなす' },
+            { id: 5, name: 'Rails開発の流れを学ぼう' }
           ]
         },
         {
