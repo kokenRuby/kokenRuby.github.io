@@ -36,16 +36,29 @@ let App = {
           id: 3,
           title: '第3回~WEBサービス作成1~',
           pages: [
-            { page: 1, name: 'Twitterもどきを作ろう' }
+            { id: 1, name: 'Twitterもどきを作ろう' },
+            { id: 2, name: 'Home画面を実装する' },
+            { id: 3, name: 'User画面を実装する' }
           ]
         },
         {
           id: 4,
           title: '第4回~WEBサービス作成2~',
           pages: [
-            { id: 1, name: 'Databaseとは' }
+            { id: 1, name: 'つぶやき画面を実装する' },
+            { id: 2, name: 'review画面を実装する' },
+            { id: 3, name: '補題: 多対多モデルとは何か' },
+            { id: 4, name: '補題: ユーザーグループ画面を実装する' }
           ]
         },
+        {
+          id: 5,
+          title: 'トラブルシューティング',
+          pages: [
+            { id: 1, name: '環境構築がうまくいかない場合' },
+            { id: 2, name: '主なRailsのエラー一覧' }
+          ]
+        }
 
       ]
     };
