@@ -3,10 +3,21 @@ let Content = {
   },
   filters: {},
   methods: {
+    highlightCode: _.debounce (
+      function () {
+        let codes = document.querySelectorAll('pre');
+        if (codes) {
+          for (let i = 0; i < codes.length; i++) {
+            hljs.highlightBlock(codes.item(i));
+          }
+        }
+      },
+      1000
+    )
   },
   computed: {
     compiledMarkdown: function () {
-      // _.debounce(function () { hljs.highlightBlock(document.querySelector('pre code')); }, 1000)
+      this.highlightCode();
       return marked(this.$store.state.content)
     }
   },
