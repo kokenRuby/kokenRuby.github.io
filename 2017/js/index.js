@@ -29,8 +29,9 @@ let App = {
             { id: 2, name: 'オブジェクト指向とは？クラスとは何か' },
             { id: 3, name: 'MVCアーキテクチャとは' },
             { id: 4, name: 'Railsコマンドを使いこなす' },
-            { id: 5, name: 'Railsのエラー一覧' },
-            { id: 6, name: 'Rails開発の流れを学ぼう' }
+            { id: 5, name: 'Rails開発の流れを学ぼう' },
+            { id: 6, name: 'Railsのエラー一覧' },
+            { id: 7, name: 'Railsでよく使う機能を使いこなす' }
           ]
         },
         {
