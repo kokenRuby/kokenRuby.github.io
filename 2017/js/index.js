@@ -111,16 +111,6 @@ let App = {
         </ul>
         </template>
 
-        <p class="menu-label">test</p>
-        <ul class="menu-list">
-          <li>
-            <a v-on:click="changeTestContent()">
-              <span class="icon"><i class="fa fa-window-maximize"></i></span>
-              <span>test</span>
-            </a>
-          </li>
-        </ul>
-
       </aside>
     </div>
     <!-- サイドメニュー -->

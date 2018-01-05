@@ -88,5 +88,5 @@
 
 .main-contents pre {
   font-size: 12px;
-  font-family: "Lucida Grande","segoe UI","ヒラギノ丸ゴ ProN W4","Hiragino Maru Gothic ProN",Meiryo,Arial,sans-serif;
+  font-family: Consolas, Menlo, 'Liberation Mono', Courier, monospace, Meiryo;
 }
