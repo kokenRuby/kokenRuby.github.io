@@ -30,8 +30,7 @@ let App = {
             { id: 3, name: 'MVCアーキテクチャとは' },
             { id: 4, name: 'Railsコマンドを使いこなす' },
             { id: 5, name: 'Rails開発の流れを学ぼう' },
-            { id: 6, name: 'Railsのエラー一覧' },
-            { id: 7, name: 'Railsでよく使う機能を使いこなす' }
+            { id: 6, name: 'Railsでよく使う機能を使いこなす' }
           ]
         },
         {
