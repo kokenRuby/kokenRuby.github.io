@@ -86,7 +86,24 @@
   vertical-align: middle;
 }
 
-.main-contents pre {
+code,pre {
   font-size: 12px;
+  font-family: Consolas, Menlo, 'Liberation Mono', Courier, monospace, Meiryo;
+}
+
+.hljs { /* 共通設定 */
+  overflow-x: auto;
+  font-family: Consolas, Menlo, 'Liberation Mono', Courier, monospace, Meiryo;
+}
+code.hljs {
+  display: inline; /* インラインコード用設定 */
+  margin: 3 3px; /*お好み*/
+  padding: 3px 3px; /*お好み*/
+  font-family: Consolas, Menlo, 'Liberation Mono', Courier, monospace, Meiryo;
+}
+pre code.hljs {
+  display: block; /* ブロックコード用設定 */
+  margin: 0; /*お好み*/
+  padding: 0.5em; /*お好み*/
   font-family: Consolas, Menlo, 'Liberation Mono', Courier, monospace, Meiryo;
 }
